@@ -2,3 +2,4 @@ build.xml
 /dist/
 /nbproject/
 /build/
+/web/WEB-INF/glassfish-web.xml
