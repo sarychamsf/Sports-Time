@@ -37,6 +37,7 @@ public class Login_Servlet extends HttpServlet {
             try {
 
                 String UserName = request.getParameter("username1");
+                String var = "sara";
                 String Password = request.getParameter("password");
                 String textoEncriptadoConMD5 = DigestUtils.md5Hex(Password);
 
