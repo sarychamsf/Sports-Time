@@ -90,6 +90,7 @@
         int identifiquer = Integer.parseInt(h);
         String nomDep = crr2.findAll().get(identifiquer).getName() + " " + crr2.findAll().get(identifiquer).getLastname();
         String nomEnt = crr2.findAll().get(identifiquer).getCoach();
+        /////probando cambios Mario
         %>
         <script>
             $(document).ready(FiltroFecha('<%=nomDep%>', '<%=nomEnt%>'));
