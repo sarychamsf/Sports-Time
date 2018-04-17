@@ -44,6 +44,66 @@
 
         %>
 
+        <script>
+
+            function Numeros(string) {//Solo numeros
+                var out = '';
+                var filtro = '1234567890';//Caracteres validos
+
+                //Recorrer el texto y verificar si el caracter se encuentra en la lista de validos 
+                for (var i = 0; i < string.length; i++)
+                    if (filtro.indexOf(string.charAt(i)) != -1)
+                        //Se añaden a la salida los caracteres validos
+                        out += string.charAt(i);
+
+                //Retornar valor filtrado
+                return out;
+            }
+
+            function Text(string) {//solo letras
+                var out = '';
+                //Se añaden las letras validas
+                var filtro = 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóú';//Caracteres validos
+
+                for (var i = 0; i < string.length; i++)
+                    if (filtro.indexOf(string.charAt(i)) != -1)
+                        out += string.charAt(i);
+                return out;
+            }
+
+            function DateString(string) {//Formato fecha dd/mm/yyyy
+                var out = '';
+                var filtro = '1234567890/';//Caracteres validos
+
+                //Recorrer el texto y verificar si el caracter se encuentra en la lista de validos 
+                for (var i = 0; i < string.length; i++) {
+                    if ((filtro.indexOf(string.charAt(i)) != -1) && ((i != 2)) && ((i != 5)))
+                        //Se añaden a la salida los caracteres validos
+                        out += string.charAt(i);
+                    if ((i == 2) || (i == 5))
+                        out += '/';
+                }
+                //Retornar valor filtrado
+                return out;
+            }
+
+            function Telf(string) {//Telefonos
+                var out = '';
+                var filtro = '1234567890+';//Caracteres validos
+
+                //Recorrer el texto y verificar si el caracter se encuentra en la lista de validos 
+                for (var i = 0; i < string.length; i++) {
+                    if ((filtro.indexOf(string.charAt(i)) != -1))
+                        //Se añaden a la salida los caracteres validos
+                        out += string.charAt(i);
+                }
+                //Retornar valor filtrado
+                return out;
+            }
+
+        </script>
+
+
     </head>
 
     <body class="signup-page ">
@@ -141,90 +201,90 @@
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/138/138672.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Name" id="Name2" type="text" class="form-control" placeholder="Nombre">
+                                                    <input name="Name" id="Name2" type="text" class="form-control" placeholder="Nombre" onkeyup="this.value = Text(this.value)">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/138/138672.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Lastname" id="Lastname2" type="text" class="form-control" placeholder="Apellido">
+                                                    <input name="Lastname" id="Lastname2" type="text" class="form-control" placeholder="Apellido" onkeyup="this.value = Text(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/148/148860.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Identification_Card" id="Identification_Card2" type="text" class="form-control" placeholder="Cédula">
+                                                    <input name="Identification_Card" id="Identification_Card2" type="text" class="form-control" placeholder="Cédula" onkeyup="this.value = Numeros(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/226/226892.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Genre" id="Genre2" type="text" class="form-control" placeholder="Género">
+                                                    <input name="Genre" id="Genre2" type="text" class="form-control" placeholder="Género" onkeyup="this.value = Text(this.value)">
                                                 </div>
                                             </div>   
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/123/123392.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Born_Date" id="Born_Date2" type="text" class="form-control" placeholder="Fecha de nacimiento (dd/mm/aaaa)">
+                                                    <input name="Born_Date" id="Born_Date2" type="text" class="form-control" placeholder="Fecha de nacimiento (dd/mm/aaaa)" maxlength="10" onkeyup="this.value = DateString(this.value)">
                                                 </div>
                                             </div>    
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/249/249196.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Height" id="Height2" type="text" class="form-control" placeholder="Altura">
+                                                    <input name="Height" id="Height2" type="text" class="form-control" placeholder="Altura" onkeyup="this.value = Numeros(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/755/755356.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Weight" id="weight2" type="text" class="form-control" placeholder="Peso">
+                                                    <input name="Weight" id="weight2" type="text" class="form-control" placeholder="Peso" onkeyup="this.value = Numeros(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/151/151917.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Category" id="Category2" type="text" class="form-control" placeholder="Categoría">
+                                                    <input name="Category" id="Category2" type="text" class="form-control" placeholder="Categoría" onkeyup="this.value = Text(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/134/134951.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Cellphone" id="Cellphone2" type="text" class="form-control" placeholder="Teléfono">
+                                                    <input name="Cellphone" id="Cellphone2" type="text" class="form-control" placeholder="Teléfono" onkeyup="this.value = Telf(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/770/770674.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Eps" id="Eps2" type="text" class="form-control" placeholder="EPS">
+                                                    <input name="Eps" id="Eps2" type="text" class="form-control" placeholder="EPS" onkeyup="this.value = TextNum(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/578/578691.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Emergency_Number" id="Emergency_Number2" type="text" class="form-control" placeholder="Número de emergencia">
+                                                    <input name="Emergency_Number" id="Emergency_Number2" type="text" class="form-control" placeholder="Número de emergencia" onkeyup="this.value = Telf(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/187/187165.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Allergies" id="Allergies2" type="text" class="form-control" placeholder="Alergias">
+                                                    <input name="Allergies" id="Allergies2" type="text" class="form-control" placeholder="Alergias" onkeyup="this.value = Text(this.value)">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <img src="https://image.flaticon.com/icons/svg/576/576845.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input name="Diseases" id="Diseases2" type="text" class="form-control" placeholder="Enfermedades">
+                                                    <input name="Diseases" id="Diseases2" type="text" class="form-control" placeholder="Enfermedades" onkeyup="this.value = Text(this.value)">
                                                 </div>
                                             </div>
 
@@ -363,7 +423,8 @@
 
                             // Sliders Init
                             materialKit.initSliders();
-                        });
+                        }
+                        );
         </script>
 
     </body>
