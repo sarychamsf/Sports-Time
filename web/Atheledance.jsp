@@ -1,6 +1,7 @@
 <%@page import="Dao.Crud_Coach"%>
 <%@page import="Dao.Crud_Athele"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
 
 <!DOCTYPE html>
 <html>
@@ -23,35 +24,59 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
         <link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
 
+        <%
+                                Crud_Athele crr2 = new Crud_Athele();
+                                Crud_Coach crr = new Crud_Coach();
+                                HttpSession misession1 = request.getSession(true);
+                                String h = String.valueOf(misession1.getAttribute("Role"));
+                                HttpSession misession2 = request.getSession(true);
+                                String h1 = String.valueOf(misession2.getAttribute("v"));
+                                int identifiquer = Integer.parseInt(h1);
+                                   
+                                ArrayList<String> nombreArrayList = new ArrayList<String>();
+                                
+                                for (int i = 0; i < crr2.findAll().size(); i++) {
+                                    if (crr2.findAll().get(i).getCoach().equals(crr.findAll().get(identifiquer).getName() + " " + crr.findAll().get(identifiquer).getLastname()) && crr2.findAll().get(i).getJornada().equals(h)) {
+                                            
+                                            
+                                        nombreArrayList.add(crr2.findAll().get(i).getName() + " " + crr2.findAll().get(i).getLastname());
+                                            
+                                            
+                                          
+                                    }
+                                }
+                                String fotoName = crr.findAll().get(identifiquer).getFotoName();
+        %>
+
+
+
         <script>
 
             $(document).ready(function () {
                 $('#listar1').click(function (event) {
 
-                    var Name_Athele0 = document.getElementById("Name_Athele0").innerHTML;
-                    var Athele0 = $('#Athele0').val();
 
-                    var Name_Athele1 = document.getElementById("Name_Athele1").innerHTML;
-                    var Athele1 = $('#Athele1').val();
 
-                    var Name_Athele2 = document.getElementById("Name_Athele2").innerHTML;
-                    var Athele2 = $('#Athele2').val();
-
-                    var Name_Athele3 = document.getElementById("Name_Athele3").innerHTML;
-                    var Athele3 = $('#Athele3').val();
-
-                    var Name_Athele4 = document.getElementById("Name_Athele4").innerHTML;
-                    var Athele4 = $('#Athele4').val();
-
-                    var Name_Athele5 = document.getElementById("Name_Athele5").innerHTML;
-                    var Athele5 = $('#Athele5').val();
+                    var nombres = [];
+                    var estado = [];
+                    var paso;
+                    
+                    for (paso = 0; paso < <%=nombreArrayList.size()%>; paso++) {
+                        nombres.push(document.getElementById("Name_Athele"+paso).innerHTML);
+                        var temp='Athele'+paso;
+                        estado.push($('#'+temp).val());
+                    }
+                    
+                    var nombresfi=nombres.toString();
+                    var estadofin=estado.toString();
 
                     var Coach_Name = document.getElementById("Coach_Name").innerHTML;
                     var Jornada = document.getElementById("Jornada").innerHTML;
+                    var lenght=<%=nombreArrayList.size()%>;
 
                     $.ajax({
                         url: "Attendance_Servlet",
-                        data: {Name_Athele0: Name_Athele0, Athele0: Athele0, Name_Athele1: Name_Athele1, Athele1: Athele1, Name_Athele2: Name_Athele2, Athele2: Athele2, Name_Athele3: Name_Athele3, Athele3: Athele3, Name_Athele4: Name_Athele4, Athele4: Athele4, Name_Athele5: Name_Athele5, Athele5: Athele5, Coach_Name: Coach_Name, Jornada: Jornada},
+                        data: {nombresfi:nombresfi,estadofin:estadofin,lenght:lenght,Coach_Name: Coach_Name, Jornada: Jornada},
                         type: "POST",
                         success: function (respuesta) {
                             if (respuesta) {
@@ -110,24 +135,7 @@
                         <div class="col-md-10 ml-auto mr-auto">
                             <div class="card card-signup">
 
-                                <%
-                                    Crud_Athele crr2 = new Crud_Athele();
-                                    Crud_Coach crr = new Crud_Coach();
-                                    HttpSession misession1 = request.getSession(true);
-                                    String h = String.valueOf(misession1.getAttribute("Role"));
-                                    HttpSession misession2 = request.getSession(true);
-                                    String h1 = String.valueOf(misession2.getAttribute("v"));
-                                    int identifiquer = Integer.parseInt(h1);
-                                    int[] temp2 = new int[6];
-                                    int y = 0;
-                                    for (int i = 0; i < crr2.findAll().size(); i++) {
-                                        if (crr2.findAll().get(i).getCoach().equals(crr.findAll().get(identifiquer).getName() + " " + crr.findAll().get(identifiquer).getLastname()) && crr2.findAll().get(i).getJornada().equals(h)) {
-                                            temp2[y] = i;
-                                            y++;
-                                        }
-                                    }
-                                    String fotoName = crr.findAll().get(identifiquer).getFotoName();
-                                %>
+
 
                                 <center>
                                     <div class="profile">
@@ -162,34 +170,38 @@
 
 
                                     <center>
-                                        <label class="plabel"><b>1 </b></label>
-                                        <input type="checkbox" id="Athele0" value="Role_Entrenador" onClick="value = 1"/>
-                                        <label id="Name_Athele0" class="plabel"><%=crr2.findAll().get(temp2[0]).getName() + " " + crr2.findAll().get(temp2[0]).getLastname()%></label>
+
+
+
+                                        <%
+                                        
+                                          for (int i = 0; i < nombreArrayList.size(); i++) {
+                                          
+ 
+                                          String idtemp="Athele"+i;
+                                          String idlabeltemo="Name_Athele"+i;
+                                          String nametemporalito=nombreArrayList.get(i);
+                                          int ju=i;
+                                          ju++;
+       
+                                        
+                                        
+                                        %>
+
+                                        <label class="plabel"><b><%=ju%> </b></label>
+                                        <input type="checkbox" id="<%=idtemp%>" value="Role_Entrenador" onClick="value = 1"/>
+                                        <label id="<%=idlabeltemo%>" class="plabel"><%=nametemporalito%></label>
                                         <br>
 
-                                        <label class="plabel"><b>2 </b></label>
-                                        <input type="checkbox" id="Athele1" value="Role_Entrenador" onClick="value = 1"/>
-                                        <label id="Name_Athele1" class="plabel"><%=crr2.findAll().get(temp2[1]).getName() + " " + crr2.findAll().get(temp2[1]).getLastname()%></label>
-                                        <br>
 
-                                        <label class="plabel"><b>3 </b></label>
-                                        <input type="checkbox" id="Athele2" value="Role_Entrenador" onClick="value = 1"/>
-                                        <label id="Name_Athele2" class="plabel"><%=crr2.findAll().get(temp2[2]).getName() + " " + crr2.findAll().get(temp2[2]).getLastname()%></label>
-                                        <br>
 
-                                        <label class="plabel"><b>4 </b></label>
-                                        <input type="checkbox" id="Athele3" value="Role_Entrenador" onClick="value = 1"/>
-                                        <label id="Name_Athele3" class="plabel"><%=crr2.findAll().get(temp2[3]).getName() + " " + crr2.findAll().get(temp2[3]).getLastname()%></label>
-                                        <br>
+                                        <%
+                                        
+                                        
+                                        }
+                
+                                        %>
 
-                                        <label class="plabel"><b>5 </b></label>
-                                        <input type="checkbox" id="Athele4" value="Role_Entrenador" onClick="value = 1"/>
-                                        <label id="Name_Athele4" class="plabel"><%=crr2.findAll().get(temp2[4]).getName() + " " + crr2.findAll().get(temp2[4]).getLastname()%></label>
-                                        <br>
-
-                                        <label class="plabel"><b>6 </b></label>
-                                        <input type="checkbox" id="Athele5" value="Role_Entrenador" onClick="value = 1"/>
-                                        <label id="Name_Athele5" class="plabel"><%=crr2.findAll().get(temp2[5]).getName() + " " + crr2.findAll().get(temp2[5]).getLastname()%></label>
 
 
                                         <br><br><br>
