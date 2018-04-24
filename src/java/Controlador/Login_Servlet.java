@@ -28,6 +28,8 @@ public class Login_Servlet extends HttpServlet {
 
         String temp = request.getParameter("Temp");
         HttpSession misession = request.getSession(true);
+   
+
 
         if (temp.equals("1")) {       //Log in
 
@@ -42,7 +44,7 @@ public class Login_Servlet extends HttpServlet {
 
                 for (int i = 0; i < crr.findAll().size(); i++) {
 
-                    if (Password.equals(crr.findAll().get(i).getPassword())) {
+                    if (Password.equals(crr.findAll().get(i).getPassword()) && UserName.equals(crr.findAll().get(i).getName())) {
                         Register reg = new Register();
                         reg.setTemp(i);
                         misession.setAttribute("usuario", "Entrenador");
@@ -55,7 +57,7 @@ public class Login_Servlet extends HttpServlet {
 
                 for (int i = 0; i < crr2.findAll().size(); i++) {
 
-                    if (Password.equals(crr2.findAll().get(i).getPassword())) {
+                    if (Password.equals(crr2.findAll().get(i).getPassword()) && UserName.equals(crr2.findAll().get(i).getName())) {
                         Register reg = new Register();
                         reg.setTemp(i);
                         misession.setAttribute("usuario", "Deportista");

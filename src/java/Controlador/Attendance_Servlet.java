@@ -5,11 +5,14 @@ import Dao.Crud_Coach;
 import Dao.Crud_List;
 import Datos.List1;
 import Datos.Register;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.net.Proxy.Type.HTTP;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,6 +25,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Attendance_Servlet extends HttpServlet {
 
@@ -32,80 +38,43 @@ public class Attendance_Servlet extends HttpServlet {
 
         response.setContentType("text/html; charset=iso-8859-1");
         PrintWriter out = response.getWriter();
+        HttpSession misession = request.getSession(true);
 
-        String Name_Athele0 = request.getParameter("Name_Athele0");
-        String Athele0 = request.getParameter("Athele0");
+        String nombresfi = request.getParameter("nombresfi");
+        String estadofin = request.getParameter("estadofin");
+        String lenght = request.getParameter("lenght");
 
-        String Name_Athele1 = request.getParameter("Name_Athele1");
-        String Athele1 = request.getParameter("Athele1");
+        int lenghti = Integer.parseInt(lenght);
+        System.out.println("........");
+        System.out.println(lenghti);
 
-        String Name_Athele2 = request.getParameter("Name_Athele2");
-        String Athele2 = request.getParameter("Athele2");
+        String[] nombres = nombresfi.split(",");
+        String[] estados = estadofin.split(",");
 
-        String Name_Athele3 = request.getParameter("Name_Athele3");
-        String Athele3 = request.getParameter("Athele3");
-
-        String Name_Athele4 = request.getParameter("Name_Athele4");
-        String Athele4 = request.getParameter("Athele4");
-
-        String Name_Athele5 = request.getParameter("Name_Athele5");
-        String Athele5 = request.getParameter("Athele5");
+        for (int i = 0; i < lenghti; i++) {
+            if (estados[i].equals("1")) {
+                estados[i] = "Asistio";
+            } else {
+                estados[i] = "No Asistio";
+            }
+        }
 
         String Coach_Name = request.getParameter("Coach_Name");
-
         String Jornada = request.getParameter("Jornada");
-
-        if (Athele0.equals("1")) {
-            Athele0 = "Asistio";
-        } else {
-            Athele0 = "No Asistio";
-        }
-
-        if (Athele1.equals("1")) {
-            Athele1 = "Asistio";
-        } else {
-            Athele1 = "No Asistio";
-        }
-
-        if (Athele2.equals("1")) {
-            Athele2 = "Asistio";
-        } else {
-            Athele2 = "No Asistio";
-        }
-
-        if (Athele3.equals("1")) {
-            Athele3 = "Asistio";
-        } else {
-            Athele3 = "No Asistio";
-        }
-
-        if (Athele4.equals("1")) {
-            Athele4 = "Asistio";
-        } else {
-            Athele4 = "No Asistio";
-        }
-
-        if (Athele5.equals("1")) {
-            Athele5 = "Asistio";
-        } else {
-            Athele5 = "No Asistio";
-        }
+        misession.setAttribute("jornada", Jornada);
 
         Crud_List crr = new Crud_List();
-        List1 list = new List1(Name_Athele0, Athele0, Name_Athele1, Athele1, Name_Athele2, Athele2, Name_Athele3, Athele3, Name_Athele4, Athele4, Name_Athele5, Athele5, Coach_Name, Jornada);
-        try {
 
-            HttpSession misession = request.getSession(true);
-            misession.setAttribute("jornada", Jornada);
-            crr.insert0(list);
-            crr.insert1(list);
-            crr.insert2(list);
-            crr.insert3(list);
-            crr.insert4(list);
-            crr.insert5(list);
-        } catch (SQLException ex) {
-            Logger.getLogger(Attendance_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+        for (int i = 0; i < lenghti; i++) {
+            try {
+                List1 list = new List1(nombres[i], estados[i], Coach_Name, Jornada);
+                crr.insert0(list);
+            } catch (SQLException ex) {
+                Logger.getLogger(Attendance_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
+
         out.println("xxx");
 
     }

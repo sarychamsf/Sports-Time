@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class Espalda_Servlet extends HttpServlet {
 
@@ -25,129 +26,65 @@ public class Espalda_Servlet extends HttpServlet {
         response.setContentType("text/html; charset=iso-8859-1");
         PrintWriter out = response.getWriter();
 
+        HttpSession misession = request.getSession(true);
         String Cantidad = request.getParameter("Cantidad");
-        String Distancia = request.getParameter("Distancia");
 
-        String Name_Athele0 = request.getParameter("Name_Athele0");
-        String Athele0 = request.getParameter("Athele0");
+        int cantidadsec = Integer.parseInt(Cantidad);
 
-        String Name_Athele1 = request.getParameter("Name_Athele1");
-        String Athele1 = request.getParameter("Athele1");
+        if (cantidadsec == 0) {
 
-        String Name_Athele2 = request.getParameter("Name_Athele2");
-        String Athele2 = request.getParameter("Athele2");
-
-        String Name_Athele3 = request.getParameter("Name_Athele3");
-        String Athele3 = request.getParameter("Athele3");
-
-        String Name_Athele4 = request.getParameter("Name_Athele4");
-        String Athele4 = request.getParameter("Athele4");
-
-        String Name_Athele5 = request.getParameter("Name_Athele5");
-        String Athele5 = request.getParameter("Athele5");
-
-        Crud_Routing routi = new Crud_Routing();
-        Routing r = new Routing(Cantidad, Distancia, "Espalda", " ");
-
-        try {
-            routi.insert(r);
-        } catch (SQLException ex) {
-            Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        int temp = 0;
-        try {
-            temp = routi.findAll().size();
-            temp--;
-        } catch (SQLException ex) {
-            Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        if (Name_Athele0.equals("")) {
+            misession.invalidate();
+            out.println("Finalizado");
 
         } else {
 
-            Crud_Athele athele = new Crud_Athele();
-            Crud_Times time = new Crud_Times();
+            String Distancia = request.getParameter("Distancia");
+
+            cantidadsec--;
+            misession.setAttribute("repeticiones", cantidadsec);
+            misession.setAttribute("Distancia", Distancia);
+
+            String nombresfi = request.getParameter("nombresfi");
+            String tiemposfi = request.getParameter("tiempofi");
+
+            String[] nombres = nombresfi.split(",");
+            String[] tiempos = tiemposfi.split(",");
+
+            Crud_Routing routi = new Crud_Routing();
+            Routing r = new Routing(Cantidad, Distancia, "Espalda", " ");
 
             try {
-                Times t = new Times(routi.findAll().get(temp).getNumber(), 1, Name_Athele0, Athele0);
-                time.insert(t);
+                routi.insert(r);
             } catch (SQLException ex) {
                 Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-
-        if (Name_Athele1.equals("")) {
-
-        } else {
-            Crud_Athele athele = new Crud_Athele();
-            Crud_Times time = new Crud_Times();
-
+            int temp = 0;
             try {
-                Times t = new Times(routi.findAll().get(temp).getNumber(), 1, Name_Athele1, Athele1);
-                time.insert(t);
+                temp = routi.findAll().size();
+                temp--;
             } catch (SQLException ex) {
                 Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
 
-        if (Name_Athele2.equals("")) {
+            for (int i = 0; i < nombres.length; i++) {
+                try {
+                    Crud_Athele athele = new Crud_Athele();
+                    Crud_Times time = new Crud_Times();
+                    Times t = new Times(routi.findAll().get(temp).getNumber(), 1, nombres[i], tiempos[i]);
+                    time.insert(t);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-        } else {
-            Crud_Athele athele = new Crud_Athele();
-            Crud_Times time = new Crud_Times();
-
-            try {
-                Times t = new Times(routi.findAll().get(temp).getNumber(), 1, Name_Athele2, Athele2);
-                time.insert(t);
-            } catch (SQLException ex) {
-                Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
 
-        if (Name_Athele3.equals("")) {
-
-        } else {
-            Crud_Athele athele = new Crud_Athele();
-            Crud_Times time = new Crud_Times();
-
-            try {
-                Times t = new Times(routi.findAll().get(temp).getNumber(), 1, Name_Athele3, Athele3);
-                time.insert(t);
-            } catch (SQLException ex) {
-                Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
+            if (cantidadsec == 0) {
+                out.println("Finalizado");
+            } else {
+                out.println("Relogea");
             }
+
         }
-
-        if (Name_Athele4.equals("")) {
-
-        } else {
-            Crud_Athele athele = new Crud_Athele();
-            Crud_Times time = new Crud_Times();
-
-            try {
-                Times t = new Times(routi.findAll().get(temp).getNumber(), 1, Name_Athele4, Athele4);
-                time.insert(t);
-            } catch (SQLException ex) {
-                Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        if (Name_Athele5.equals("")) {
-
-        } else {
-            Crud_Athele athele = new Crud_Athele();
-            Crud_Times time = new Crud_Times();
-
-            try {
-                Times t = new Times(routi.findAll().get(temp).getNumber(), 1, Name_Athele5, Athele5);
-                time.insert(t);
-            } catch (SQLException ex) {
-                Logger.getLogger(Espalda_Servlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        out.println("xxx");
 
     }
 }
