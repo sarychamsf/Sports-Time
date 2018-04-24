@@ -1,3 +1,5 @@
+/* global Centesimas4 */
+
 var centesimas1 = 0;
 var segundos1 = 0;
 var minutos1 = 0;
@@ -53,7 +55,7 @@ function cronometro1() {
     }
 
     final1 = horas1 + ":" + minutos1 + ":" + segundos1 + ":" + centesimas1;
-   
+
     return final1;
 
 }
@@ -355,3 +357,238 @@ function cronometro6() {
     return final6;
 }
 
+
+
+var centesimas7 = 0;
+var segundos7 = 0;
+var minutos7 = 0;
+var horas7 = 0;
+var final7 = 0;
+function inicio7() {
+    control7 = setInterval(cronometro7, 10);
+    document.getElementById("inicio7").disabled = true;
+    document.getElementById("parar7").disabled = false;
+}
+function parar7() {
+    clearInterval(control7);
+    document.getElementById("parar7").disabled = true;
+}
+
+function cronometro7() {
+    if (centesimas7 < 99) {
+        centesimas7++;
+        if (centesimas7 < 10) {
+            centesimas7 = "0" + centesimas7
+        }
+        Centesimas7.innerHTML = ":" + centesimas7;
+    }
+    if (centesimas7 == 99) {
+        centesimas7 = -1;
+    }
+    if (centesimas7 == 0) {
+        segundos7++;
+        if (segundos7 < 10) {
+            segundos7 = "0" + segundos7
+        }
+        Segundos7.innerHTML = ":" + segundos7;
+    }
+    if (segundos7 == 59) {
+        segundos7 = -1;
+    }
+    if ((centesimas7 == 0) && (segundos7 == 0)) {
+        minutos7++;
+        if (minutos7 < 10) {
+            minutos7 = "0" + minutos7
+        }
+        Minutos7.innerHTML = ":" + minutos7;
+    }
+    if (minutos7 == 59) {
+        minutos7 = -1;
+    }
+    if ((centesimas7 == 0) && (segundos7 == 0) && (minutos7 == 0)) {
+        horas7++;
+        if (horas7 < 10) {
+            horas7 = "0" + horas7
+        }
+        Horas7.innerHTML = horas7;
+    }
+
+    final7 = horas7 + ":" + minutos7 + ":" + segundos7 + ":" + centesimas7;
+    return final7;
+}
+
+
+var centesimas8 = 0;
+var segundos8 = 0;
+var minutos8 = 0;
+var horas8 = 0;
+var final8 = 0;
+function inicio8() {
+    control8 = setInterval(cronometro8, 10);
+    document.getElementById("inicio8").disabled = true;
+    document.getElementById("parar8").disabled = false;
+}
+function parar8() {
+    clearInterval(control8);
+    document.getElementById("parar8").disabled = true;
+}
+
+function cronometro8() {
+    if (centesimas8 < 99) {
+        centesimas8++;
+        if (centesimas8 < 10) {
+            centesimas8 = "0" + centesimas8
+        }
+        Centesimas8.innerHTML = ":" + centesimas8;
+    }
+    if (centesimas8 == 99) {
+        centesimas8 = -1;
+    }
+    if (centesimas8 == 0) {
+        segundos8++;
+        if (segundos8 < 10) {
+            segundos8 = "0" + segundos8
+        }
+        Segundos8.innerHTML = ":" + segundos8;
+    }
+    if (segundos8 == 59) {
+        segundos8 = -1;
+    }
+    if ((centesimas8 == 0) && (segundos8 == 0)) {
+        minutos8++;
+        if (minutos8 < 10) {
+            minutos8 = "0" + minutos8
+        }
+        Minutos8.innerHTML = ":" + minutos8;
+    }
+    if (minutos8 == 59) {
+        minutos8 = -1;
+    }
+    if ((centesimas8 == 0) && (segundos8 == 0) && (minutos8 == 0)) {
+        horas8++;
+        if (horas8 < 10) {
+            horas8 = "0" + horas8
+        }
+        Horas8.innerHTML = horas8;
+    }
+
+    final8 = horas8 + ":" + minutos8 + ":" + segundos8 + ":" + centesimas8;
+    return final8;
+}
+
+
+var centesimas9 = 0;
+var segundos9 = 0;
+var minutos9 = 0;
+var horas9 = 0;
+var final9 = 0;
+function inicio9() {
+    control9 = setInterval(cronometro9, 10);
+    document.getElementById("inicio9").disabled = true;
+    document.getElementById("parar9").disabled = false;
+}
+function parar9() {
+    clearInterval(control9);
+    document.getElementById("parar9").disabled = true;
+}
+
+function cronometro9() {
+    if (centesimas9 < 99) {
+        centesimas9++;
+        if (centesimas9 < 10) {
+            centesimas9 = "0" + centesimas9
+        }
+        Centesimas9.innerHTML = ":" + centesimas9;
+    }
+    if (centesimas9 == 99) {
+        centesimas9 = -1;
+    }
+    if (centesimas9 == 0) {
+        segundos9++;
+        if (segundos9 < 10) {
+            segundos9 = "0" + segundos9
+        }
+        Segundos9.innerHTML = ":" + segundos9;
+    }
+    if (segundos9 == 59) {
+        segundos9 = -1;
+    }
+    if ((centesimas9 == 0) && (segundos9 == 0)) {
+        minutos9++;
+        if (minutos9 < 10) {
+            minutos9 = "0" + minutos9
+        }
+        Minutos9.innerHTML = ":" + minutos9;
+    }
+    if (minutos9 == 59) {
+        minutos9 = -1;
+    }
+    if ((centesimas9 == 0) && (segundos9 == 0) && (minutos9 == 0)) {
+        horas9++;
+        if (horas9 < 10) {
+            horas9 = "0" + horas9
+        }
+        Horas9.innerHTML = horas9;
+    }
+
+    final9 = horas9 + ":" + minutos9 + ":" + segundos9 + ":" + centesimas9;
+    return final9;
+}
+
+var centesimas10 = 0;
+var segundos10 = 0;
+var minutos10 = 0;
+var horas10 = 0;
+var final10 = 0;
+function inicio10() {
+    control10 = setInterval(cronometro10, 10);
+    document.getElementById("inicio10").disabled = true;
+    document.getElementById("parar10").disabled = false;
+}
+function parar10() {
+    clearInterval(control10);
+    document.getElementById("parar10").disabled = true;
+}
+
+function cronometro10() {
+    if (centesimas10 < 99) {
+        centesimas10++;
+        if (centesimas10 < 10) {
+            centesimas10 = "0" + centesimas10
+        }
+        Centesimas10.innerHTML = ":" + centesimas10;
+    }
+    if (centesimas10 == 99) {
+        centesimas10 = -1;
+    }
+    if (centesimas10 == 0) {
+        segundos10++;
+        if (segundos10 < 10) {
+            segundos10 = "0" + segundos10
+        }
+        Segundos10.innerHTML = ":" + segundos10;
+    }
+    if (segundos10 == 59) {
+        segundos10 = -1;
+    }
+    if ((centesimas10 == 0) && (segundos10 == 0)) {
+        minutos10++;
+        if (minutos10 < 10) {
+            minutos10 = "0" + minutos10
+        }
+        Minutos10.innerHTML = ":" + minutos10;
+    }
+    if (minutos10 == 59) {
+        minutos10 = -1;
+    }
+    if ((centesimas10 == 0) && (segundos10 == 0) && (minutos10 == 0)) {
+        horas10++;
+        if (horas10 < 10) {
+            horas10 = "0" + horas10
+        }
+        Horas10.innerHTML = horas10;
+    }
+
+    final10 = horas10 + ":" + minutos10 + ":" + segundos10 + ":" + centesimas10;
+    return final10;
+}

@@ -28,6 +28,8 @@ public class Login_Servlet extends HttpServlet {
 
         String temp = request.getParameter("Temp");
         HttpSession misession = request.getSession(true);
+   
+
 
         if (temp.equals("1")) {       //Log in
 

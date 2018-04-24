@@ -21,9 +21,11 @@ public class Conexion {
                 //Integracion Log4J
                 throw new SQLException(e);
             }
+            
+          
 
             try {
-                CONEXION = DriverManager.getConnection("jdbc:mysql://localhost:3306/sports_time1", "root", "root");
+                CONEXION = DriverManager.getConnection("jdbc:mysql://localhost:3306/sports_time", "root", "root");
                 System.out.println("voy");
             } catch (SQLException e) {
                 throw new SQLException(e);
