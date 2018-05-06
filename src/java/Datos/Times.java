@@ -58,6 +58,11 @@ public class Times {
         this.time = time;
     }
 
+    @Override
+    public String toString() {
+        return "Times{" + "ID_Time=" + ID_Time + ", ID_Routing=" + ID_Routing + ", ID_Athele=" + ID_Athele + ", time=" + time + '}';
+    }
+
   
 
 }
