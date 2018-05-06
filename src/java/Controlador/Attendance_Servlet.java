@@ -1,23 +1,10 @@
 package Controlador;
 
-import Dao.Crud_Athele;
-import Dao.Crud_Coach;
 import Dao.Crud_List;
 import Datos.List1;
-import Datos.Register;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.net.Proxy.Type.HTTP;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -25,9 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class Attendance_Servlet extends HttpServlet {
 

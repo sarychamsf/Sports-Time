@@ -114,7 +114,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>GÃ©nero: </b>" + crr.findAll().get(i).getGenre() + "</p>");
+                                                out.println("<p><b>Género: </b>" + crr.findAll().get(i).getGenre() + "</p>");
                                             %>
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>CategorÃ­a: </b>" + crr.findAll().get(i).getCategory() + "</p>");
+                                                out.println("<p><b>Categoría: </b>" + crr.findAll().get(i).getCategory() + "</p>");
                                             %>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>TelÃ©fono: </b>" + crr.findAll().get(i).getCellphone() + "</p>");
+                                                out.println("<p><b>Teléfono: </b>" + crr.findAll().get(i).getCellphone() + "</p>");
                                             %>
                                         </div>
                                     </div>
@@ -146,7 +146,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>DescripciÃ³n: </b>" + crr.findAll().get(i).getDescription() + "</p>");
+                                                out.println("<p><b>Descripción: </b>" + crr.findAll().get(i).getDescription() + "</p>");
                                             %>
                                         </div>
                                     </div>    
@@ -179,7 +179,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>GÃ©nero: </b>" + crr2.findAll().get(i).getGenre() + "</p>");
+                                                out.println("<p><b>Género: </b>" + crr2.findAll().get(i).getGenre() + "</p>");
                                             %>
                                         </div>
                                     </div>
@@ -195,7 +195,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>CategorÃ­a: </b>" + crr2.findAll().get(i).getCategory() + "</p>");
+                                                out.println("<p><b>Categoría: </b>" + crr2.findAll().get(i).getCategory() + "</p>");
                                             %>
                                         </div>
                                     </div>
@@ -203,7 +203,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>TelÃ©fono: </b>" + crr2.findAll().get(i).getCellphone() + "</p>");
+                                                out.println("<p><b>Teléfono: </b>" + crr2.findAll().get(i).getCellphone() + "</p>");
                                             %>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
                                     <div class="form-group">
                                         <div class="form-check form-check-radio form-check-inline">
                                             <%
-                                                out.println("<p><b>DescripciÃ³n: </b>" + crr2.findAll().get(i).getDescription() + "</p>");
+                                                out.println("<p><b>Descripción: </b>" + crr2.findAll().get(i).getDescription() + "</p>");
                                             %>
                                         </div>
                                     </div>    

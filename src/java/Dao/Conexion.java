@@ -25,8 +25,7 @@ public class Conexion {
           
 
             try {
-                CONEXION = DriverManager.getConnection("jdbc:mysql://localhost:3306/sports_time", "root", "");
-                System.out.println("voy");
+                CONEXION = DriverManager.getConnection("jdbc:mysql://localhost:3306/sports_time2", "root", "root");
             } catch (SQLException e) {
                 throw new SQLException(e);
             }
