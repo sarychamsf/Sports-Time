@@ -75,7 +75,7 @@ public class Crud_List {
     
     public List<String> Fechas(String nombreDep, String nombreEnt) throws SQLException {
         List<String> departamentos = null;
-        String query = "SELECT Date1 FROM asistance Where Name_Athele='"+nombreDep+"' and Name_Coach='"+nombreEnt+"' and State='Asistio' ORDER BY Date1 DESC;";
+        String query = "SELECT Date1 FROM asistance Where Name_Athele='"+nombreDep+"' and Name_Coach='"+nombreEnt+"' and State='Asistio' GROUP BY Date1 ORDER BY Date1 DESC;";
 //        System.out.println(query);
         Connection connection = Conexion.getConnection();
         try {

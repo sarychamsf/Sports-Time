@@ -64,6 +64,10 @@
         <servlet-name>Register_Servlet</servlet-name>
         <servlet-class>Controlador.Register_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EventoSv</servlet-name>
+        <servlet-class>Controlador.EventoSv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Athlete_Servlet</servlet-name>
         <url-pattern>/Athlete_Servlet</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>Register_Servlet</servlet-name>
         <url-pattern>/Register_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventoSv</servlet-name>
+        <url-pattern>/EventoSv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

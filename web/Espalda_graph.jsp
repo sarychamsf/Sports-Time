@@ -10,22 +10,22 @@
 <html>
 
     <head>
-
+        <head>
+        <!inicion de scrip graficas LIneales>
+    <script src="GraficasJS/Charts JS2/Chart.bundle.js"></script>
+    <script src="GraficasJS/Charts JS2/utils.js"></script>
+    <script src="GraficasJS/Jquery-3.3.1.js"></script>
+    <script src="GraficasJS/Graficas.js"></script>
+    <!fin de scrip graficas LIneales>
 
         <script type="text/javascript" src="js/chartJS/Chart.min.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/Graficas.js"></script>
 
-        <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-        <script src="Script/script1.js" type="text/javascript"></script>
 
+        
         <link rel="stylesheet" href="assets/css/style_crono.css">
-
-
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
         <!-- Favicons -->
         <link rel="apple-touch-icon" href="./assets/img/kit/free/favicon.png">
         <link rel="icon" href="./assets/img/kit/free/favicon.png">
@@ -219,18 +219,6 @@
         <script src="./assets/js/material-kit.js?v=2.0.2"></script>
         <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
         <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
-        <script>
-                        $(document).ready(function () {
-
-                            //init DateTimePickers
-                            materialKit.initFormExtendedDatetimepickers();
-
-                            // Sliders Init
-                            materialKit.initSliders();
-                        });
-        </script>
-
-
 
     </body>
 

@@ -5,9 +5,12 @@
  */
 package Controlador;
 
-import Dao.*;
+import Dao.DaoEventos;
+import Datos.Eventos;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,45 +25,36 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author MARIO
  */
-public class Graficas extends HttpServlet {
+public class EventoSv extends HttpServlet {
+    
+    private DaoEventos dao;
+    private int eliminarID;
+    private int buscarID;
 
-    private Crud_List dao;
-    private Crud_Routing dao2;
-    private Crud_Times dao3;
-    private String nombreEnt;
-    private String Fecha;
-    private String Estilo;
-    private String Distancia;
-
-    public Graficas() {
+    public EventoSv() throws URISyntaxException, SQLException {
         super();
-        dao = new Crud_List();
-        dao2 = new Crud_Routing();
-        dao3 = new Crud_Times();
+        dao = new DaoEventos();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new Gson();
         String s = null;
-        int distID = 0;
         try {
-            ///posiscion 0
-            List<String> datosFecha = dao.Fechas2(nombreEnt);
-            ///posiscion 1
-            List<String> datosEstilos = dao2.Estilos(Fecha);
-            ///posiscion 2
-            List<List> datosFilFecEnt = new ArrayList<List>();
-            if (Distancia!=null) {
-                distID=Integer.parseInt(Distancia);
-                System.out.println(distID);
-                datosFilFecEnt = dao3.datosGrafica(distID);
+            ///posiscion 0 //Lista Eventos
+            List<Eventos> datosEvento = dao.ListarObj();
+            if (this.eliminarID != 0) {
+                dao.deleteObj(eliminarID);
             }
             
+            if (this.buscarID != 0) {
+                dao.buscarId(buscarID);
+            }
+ 
+            
+            /////Asignacion Gson
             List<List> dotGraficas = new ArrayList<List>();
-            dotGraficas.add(datosFecha);
+            dotGraficas.add(datosEvento);
 //            System.out.println(dotGraficas.get(0));
-            dotGraficas.add(datosEstilos);
-            dotGraficas.add(datosFilFecEnt);
 
             s = gson.toJson(dotGraficas);
         } catch (SQLException ex) {
@@ -70,12 +64,15 @@ public class Graficas extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.nombreEnt = request.getParameter("nombreEntJX");
-        this.Fecha = request.getParameter("FechaJX");
-        this.Estilo = request.getParameter("EstiloJX");
-        this.Distancia= request.getParameter("DistanciaJX");
+        this.eliminarID = Integer.parseInt(request.getParameter("IDeliminarJX"));
+        this.buscarID = Integer.parseInt(request.getParameter("IDactualizarJX"));
+        System.out.println(eliminarID+" "+buscarID);
         
-        System.out.println(nombreEnt+" "+Fecha+" "+Estilo+" "+Distancia);
+        
+        
+        
+        
+        
         doGet(request, response);
     }
 }
