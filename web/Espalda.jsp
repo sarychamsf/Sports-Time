@@ -33,6 +33,7 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
         <link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
+        <link rel="stylesheet" href="./assets/css/personalizar.css">
 
 
         <%
@@ -78,9 +79,6 @@
 
         %>
 
-
-
-
         <script>
             $(document).ready(function () {
                 $('#finalizar').click(function (event) {
@@ -90,51 +88,51 @@
                     var u = 1;
 
 
-                    if ($('#Name_Athele1').val() != undefined) {
+                    if ($('#Name_Athele1').val() !== undefined) {
                         nombres.push($('#Name_Athele1').val());
                         tiempos.push(cronometro1());
                     }
 
-                    if ($('#Name_Athele2').val() != undefined) {
+                    if ($('#Name_Athele2').val() !== undefined) {
                         nombres.push($('#Name_Athele2').val());
                         tiempos.push(cronometro2());
                     }
 
-                    if ($('#Name_Athele3').val() != undefined) {
+                    if ($('#Name_Athele3').val() !== undefined) {
                         nombres.push($('#Name_Athele3').val());
                         tiempos.push(cronometro3());
                     }
 
-                    if ($('#Name_Athele4').val() != undefined) {
+                    if ($('#Name_Athele4').val() !== undefined) {
                         nombres.push($('#Name_Athele4').val());
                         tiempos.push(cronometro4());
                     }
 
-                    if ($('#Name_Athele5').val() != undefined) {
+                    if ($('#Name_Athele5').val() !== undefined) {
                         nombres.push($('#Name_Athele5').val());
                         tiempos.push(cronometro5());
                     }
 
-                    if ($('#Name_Athele6').val() != undefined) {
+                    if ($('#Name_Athele6').val() !== undefined) {
                         nombres.push($('#Name_Athele6').val());
                         tiempos.push(cronometro6());
                     }
 
-                    if ($('#Name_Athele7').val() != undefined) {
+                    if ($('#Name_Athele7').val() !== undefined) {
                         nombres.push($('#Name_Athele7').val());
                         tiempos.push(cronometro7());
                     }
 
-                    if ($('#Name_Athele8').val() != undefined) {
+                    if ($('#Name_Athele8').val() !== undefined) {
                         nombres.push($('#Name_Athele8').val());
                         tiempos.push(cronometro8());
                     }
-                    if ($('#Name_Athele9').val() != undefined) {
+                    if ($('#Name_Athele9').val() !== undefined) {
                         nombres.push($('#Name_Athele9').val());
                         tiempos.push(cronometro9());
                     }
 
-                    if ($('#Name_Athele10').val() != undefined) {
+                    if ($('#Name_Athele10').val() !== undefined) {
                         nombres.push($('#Name_Athele10').val());
                         tiempos.push(cronometro10());
                     }
@@ -218,18 +216,14 @@
                         </div>
                     </center>
                     <div class="card-body" >
-                        <center>
-                            <p>______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</p>
-                            <br>
-                        </center>
                         <div style="align-self: center; margin-left: 640px;">
 
-                            <div style="width:300px; height:200px;">
+                            <div style="width:300px; height:200px;margin-bottom: 50px;padding-bottom: 50px;">
                                 <center>
+
                                     <div class="form-group">
                                         <div class="input-group">
                                             <img src="https://image.flaticon.com/icons/svg/106/106954.svg" alt="Sports Time" width=30 height=30 hspace="50">
-
 
                                             <%                                                HttpSession misession4 = request.getSession(true);
                                                 String h4 = String.valueOf(misession4.getAttribute("repeticiones"));
@@ -282,10 +276,16 @@
 
                                             %>
                                         </div>
+
+
                                     </div>
+
+
                                 </center>
 
+
                             </div>
+
 
                             <%                                int u = 1;
                                 for (int i = 0; i < temp2.length; i++) {
@@ -307,85 +307,89 @@
 
                         </div>
 
-                        <center>
-                            <p>______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</p>
-                            <div class="form-group">
 
-                                <div id="contenedor1" class="form-check-inline">
-                                    <div style="margin: 50px;">
+                        <div class="form-group form-check-inline">
+
+                            <div id="contenedor1" class="form-check-inline" style="align-self: center;">
+
+                                <div style="margin: 40px; margin-left: 70px;">
+                                    <center>
                                         <div class="form-group">
-                                            <input  class="plabel" type="text" readonly="readonly" id="<%=Name_Athele%>" value="<%=lista1.findAll().get(temp2[i]).getName_Athele0()%>"/>
+                                            <input style="border:none; text-align: center;" type="text" readonly="readonly" id="<%=Name_Athele%>" value="<%=lista1.findAll().get(temp2[i]).getName_Athele0()%>"/>
                                         </div>
-
-                                        <p>&nbsp;</p>
-                                        <div class="reloj" id="<%=Minutos%>">00</div>
-                                        <div class="reloj" id="<%=Segundos%>">:00</div>
-                                        <div class="reloj" id="<%=Centesimas%>">:00</div>
-                                        <p>&nbsp;</p>
-                                        <br><br>
+                                    </center>
+                                    <p>&nbsp;</p>
+                                    <div class="reloj" id="<%=Minutos%>">00</div>
+                                    <div class="reloj" id="<%=Segundos%>">:00</div>
+                                    <div class="reloj" id="<%=Centesimas%>">:00</div>
+                                    <p>&nbsp;</p>
+                                    <center>
                                         <input type="button" class="btn btn-success btn-round" id="<%=inicio%>" value="Start &#9658;" onclick="<%=funcion%>">
-
                                         <input type="button" class="btn btn-danger btn-round" id="<%=parar%>" value="Stop &#8718;" onclick="<%=funcion2%>" disabled>
-
-                                        <p>&nbsp;</p>
-                                        <p>&nbsp;</p>
-                                    </div>
-
+                                    </center>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
                                 </div>
 
-                                <%    }
-                                    }
-                                %>
-
-                                <br>
-                                <center>
-                                    <div>
-                                        <input class="btn btn-info btn-lg" id="finalizar" type="submit" value="Finalizar" />
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a href="./Management.jsp" class="btn btn-info btn-lg">Volver</a>
-                                    </div>
-                                </center>
-                                <br><br><br><br>
-
                             </div>
+
+
+                            <%    }
+                                }
+                            %>
+
+                        </div>
+
+                        <br><br><br>
+
+                        <center>
+                            <div>
+                                <input class="btn btn-info btn-lg" id="finalizar" type="submit" value="Finalizar" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="./Management.jsp" class="btn btn-info btn-lg">Volver</a>
+                            </div>
+                        </center>
+                        <br><br><br><br>
+
                     </div>
                 </div>
-
-                <footer class="footer" style="background-image: url('assets/img/kit/ft.jpg'); background-size: cover; background-position: top center;">
-                    <div class="container">
-                        <br>
-                        <center>
-                            &copy;
-                            <script>
-            document.write(new Date().getFullYear())
-                            </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños
-                        </center>
-                    </div>
-                </footer>
-
             </div>
 
+            <footer class="footer" style="background-image: url('assets/img/kit/ft.jpg'); background-size: cover; background-position: top center;">
+                <div class="container">
+                    <br>
+                    <center>
+                        &copy;
+                        <script>
+            document.write(new Date().getFullYear())
+                        </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños
+                    </center>
+                </div>
+            </footer>
+
+        </div>
 
 
 
 
 
-            <!--   Core JS Files   -->
-            <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-            <script src="./assets/js/core/jquery.min.js"></script>
-            <script src="./assets/js/core/popper.min.js"></script>
-            <script src="./assets/js/bootstrap-material-design.js"></script>
-            <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-            <script src="./assets/js/plugins/moment.min.js"></script>
-            <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-            <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-            <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-            <script src="./assets/js/plugins/nouislider.min.js"></script>
-            <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-            <script src="./assets/js/material-kit.js?v=2.0.2"></script>
-            <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-            <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
-            <script>
+
+        <!--   Core JS Files   -->
+        <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script src="./assets/js/core/jquery.min.js"></script>
+        <script src="./assets/js/core/popper.min.js"></script>
+        <script src="./assets/js/bootstrap-material-design.js"></script>
+        <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+        <script src="./assets/js/plugins/moment.min.js"></script>
+        <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+        <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+        <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+        <script src="./assets/js/plugins/nouislider.min.js"></script>
+        <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+        <script src="./assets/js/material-kit.js?v=2.0.2"></script>
+        <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+        <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
+        <script>
             $(document).ready(function () {
 
                 //init DateTimePickers
@@ -394,7 +398,7 @@
                 // Sliders Init
                 materialKit.initSliders();
             });
-            </script>
+        </script>
 
     </body>
 

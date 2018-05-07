@@ -24,6 +24,7 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
         <link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
+        <link rel="stylesheet" href="./assets/css/personalizar.css">
 
         <%
 
@@ -43,6 +44,8 @@
             }
 
         %>
+
+
 
         <script>
 
@@ -363,7 +366,7 @@
 
                                             <br><br>
                                             <div class="form-group">
-                                                <p>Selecciona una imágen de perfil:</p>
+                                                <p>Selecciona una imagen de perfil:</p>
                                                 <div class="form-group form-file-upload form-file-simple">
                                                     <input name="fototxt" id="fototxt" type="text" class="form-control inputFileVisible" placeholder="Simple chooser...">
                                                     <input name="fotofile" id="fotofile" type="file" class="inputFileHidden" accept=".jpg, .jpeg, .png">
