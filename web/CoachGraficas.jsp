@@ -157,12 +157,12 @@
                                     <br><br><br>
                                     <div id="canvas-holder1">
                                         <canvas id="chart2"></canvas>
-                                        <button onclick="toggleSmooth(this)">Smooth</button>
                                     </div>
                                 </div>
 
                                 <br>
                                 <div class="card-footer justify-content-center">
+                                    <button class="btn btn-info btn-round"onclick="toggleSmooth(this)">Linealizar Gráfica</button>
                                     <a href="./Coach.jsp" class="btn btn-info btn-round">Cancelar</a>
                                     <br><br><br><br>
                                 </div>

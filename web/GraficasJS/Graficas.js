@@ -139,7 +139,7 @@ function GraficaLineal() {
             window.Grafica = new Chart(ctx, config);
         },
         error: function () {
-            alert('error con los datos DE las Graficas');
+            alert('Error: datos de las gráficas.');
         }
     });
 
@@ -174,7 +174,7 @@ function FiltroFecha(nombreDep, NombreEnt) {
             FiltroEstilos();
         },
         error: function () {
-            alert('error Filtro Fechas');
+            alert('Error: Filtro Fechas');
         }
     });
 }
@@ -198,7 +198,7 @@ function FiltroFecha2(NombreEnt) {
             FiltroEstilos();
         },
         error: function () {
-            alert('error Filtro Fechas');
+            alert('Error: Filtro Fechas');
         }
     });
 }
@@ -220,7 +220,7 @@ function FiltroEstilos() {
             FiltroDistancia();
         },
         error: function () {
-            alert('error Filtro Estilos');
+            alert('Error: Filtro Estilos');
         }
     });
 }
@@ -244,7 +244,7 @@ function FiltroDistancia() {
             DatosFiltro2();
         },
         error: function (data) {
-            alert('error Filtro Distancias');
+            alert('Error: Filtro Distancias');
         }
     });
 }
@@ -261,7 +261,7 @@ function DatosFiltro(nombre) {
             GraficaFiltros();
         },
         error: function () {
-            alert('Disculpa, No hay Datos para El Filtro');
+            alert('Disculpa, no hay datos para el filtro seleccionado, escoge otra fecha.');
         }
     });
 }
@@ -278,7 +278,7 @@ function DatosFiltro2() {
             GraficaLineal();
         },
         error: function () {
-            alert('Disculpa, No hay Datos para El Filtro2');
+            alert('Disculpa, no hay datos para el filtro seleccionado, escoge otra fecha.');
         }
     });
 }
@@ -314,7 +314,6 @@ function GraficaFiltros(NombreEnt) {
 
 function BorrarGrafica() {
     document.getElementById('canvas-holder1').innerHTML = '';
-    $("#canvas-holder1").append('<canvas id="chart2"></canvas>' + '<button onclick="toggleSmooth(this)">Smooth</button>');
 }
 
 
