@@ -146,6 +146,24 @@
     }
     %>
 
+    <style>
+
+        .buttonVolver {
+            background-color: #008CBA; /* Green */
+            border: none;
+            color: white;
+            padding: 6px 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 230px;
+            margin-top: 3px;
+            border-radius: 5px;
+        }
+
+    </style>
+
 </head>
 
 <body onload="init();">
@@ -158,6 +176,8 @@
             <div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
             <div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
             <div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+            <br>
+            <a href="Login.jsp"><button class="buttonVolver">Volver</button></a> 
         </div>
         <div class="dhx_cal_header">
         </div>
