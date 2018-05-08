@@ -186,12 +186,12 @@
                             <a href="./Coach.jsp" class="btn btn-info btn-round">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/sarychamsf" target="_blank" data-original-title="Síguenos en Twitter">
+                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/SportsTimeUSA" target="_blank" data-original-title="Síguenos en Twitter">
                                 <i class="fa fa-twitter"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/sarychamsf" target="_blank" data-original-title="Síguenos en Facebook">
+                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/Sports-Time-448388048915031/" target="_blank" data-original-title="Síguenos en Facebook">
                                 <i class="fa fa-facebook-square"></i>
                             </a>
                         </li>
@@ -357,7 +357,7 @@
                     <center>
                         &copy;
                         <script>
-document.write(new Date().getFullYear())
+            document.write(new Date().getFullYear())
                         </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños
                     </center>
                 </div>
@@ -386,14 +386,14 @@ document.write(new Date().getFullYear())
         <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
         <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
         <script>
-$(document).ready(function () {
+            $(document).ready(function () {
 
-    //init DateTimePickers
-    materialKit.initFormExtendedDatetimepickers();
+                //init DateTimePickers
+                materialKit.initFormExtendedDatetimepickers();
 
-    // Sliders Init
-    materialKit.initSliders();
-});
+                // Sliders Init
+                materialKit.initSliders();
+            });
         </script>
 
     </body>
