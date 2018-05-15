@@ -18,7 +18,7 @@ public class DaoEventos {
         connection = Conexion.getConnection();
     }
 
-    public List<Eventos> ListarObj() throws SQLException {
+    public List<Eventos> ListarEventos() throws SQLException {
         List<Eventos> eventos = new ArrayList<Eventos>();
         String query = "SELECT * FROM EVENTS";
         Connection connection = Conexion.getConnection();
@@ -49,7 +49,7 @@ public class DaoEventos {
         return eventos;
     }
 
-    public void addObjeto(Eventos objetoAdd) {
+    public void addEvento(Eventos objetoAdd) {
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("INSERT INTO events (`start_date`, `end_date`, `text`, `subject`) VALUES (?, ?, ?, ?);");
@@ -65,7 +65,7 @@ public class DaoEventos {
         }
     }
 
-    public void deleteObj(String text) {
+    public void deleteEvento(String text) {
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("delete from events where text=?");
@@ -77,7 +77,7 @@ public class DaoEventos {
         }
     }
 
-    public void updateTabla(Eventos objetoUP, String text) {
+    public void updateEvento(Eventos objetoUP, String text) {
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("update events set start_date=?, end_date=?, text=?, subject=? where text=" + text);

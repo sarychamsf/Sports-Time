@@ -119,19 +119,30 @@
             //CREAR UN LLAMADO AJAX A UN SERVLET. EL SERVLET ENTREGA LA LISTA DE EVENTOS. ESTA LISTA DE EVENTOS DEBE TENER EL FORMATO LOS CREADOS.
             //EL SERVLET LOS ENTREGA EN JSON Y ACÀ SE PARSEA 
 
-            scheduler.parse([
-                {start_date: "2018-05-18 09:00", end_date: "2018-05-18 12:00", text: "Rosa", subject: 'rosa'},
-                {start_date: "2018-05-20 10:00", end_date: "2018-05-21 16:00", text: "Amarillo", subject: 'amarillo'},
-                {start_date: "2018-05-21 10:00", end_date: "2018-05-21 14:00", text: "Verde", subject: 'verde'},
-                {start_date: "2018-05-23 16:00", end_date: "2018-05-23 17:00", text: "Rosa2", subject: 'rosa '},
-                {start_date: "2018-05-22 09:00", end_date: "2018-05-22 17:00", text: "Azul"}
-            ], "json");
+//            scheduler.parse([
+//                {start_date: "2018-05-18 09:00", end_date: "2018-05-18 12:00", text: "Rosa", subject: 'rosa'},
+//                {start_date: "2018-05-20 10:00", end_date: "2018-05-21 16:00", text: "Amarillo", subject: 'amarillo'},
+//                {start_date: "2018-05-21 10:00", end_date: "2018-05-21 14:00", text: "Verde", subject: 'verde'},
+//                {start_date: "2018-05-23 16:00", end_date: "2018-05-23 17:00", text: "Rosa2", subject: 'rosa '},
+//                {start_date: "2018-05-22 09:00", end_date: "2018-05-22 17:00", text: "Azul"}
+//            ], "json");
+
+
+            // Lista de eventos extraída de la base de datos, convirtiéndola a JSON.
+            scheduler.parse(eventoGson, "json");
 
         }
 
+        //Agregar evento: hacer llamado AJAX para enviar la variable "ev" al Servlet.
         scheduler.attachEvent("onEventAdded", function (id, ev) {
             console.log(ev);
-//        hacer llamado ajax para enviar al servlet la variable ev.
+            var tempAgregar = 1;
+
+            $.ajax({
+                url: 'EventoSV',
+                data: {id: id, ev: ev},
+                type: 'POST'
+            });
 
         });
     </script>

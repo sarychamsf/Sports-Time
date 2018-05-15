@@ -11,7 +11,6 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,48 +25,43 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class EventoSv extends HttpServlet {
 
-    private DaoEventos dao;
-    private String eliminarTxt;
-    private String buscarTxt;
-
-    public EventoSv() throws URISyntaxException, SQLException {
-        super();
-        dao = new DaoEventos();
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Gson gson = new Gson();
-        String s = null;
-
-        try {
-            ///posiscion 0 //Lista Eventos
-            List<Eventos> datosEvento = dao.ListarObj();
-//            if (this.eliminarTxt != 0) {
-//                dao.deleteObj(eliminarTxt);
-//            }
-//
-//            if (this.buscarTxt != 0) {
-//                dao.buscarId(buscarTxt);
-//            }
-
-            /////Asignacion Gson
-            List<List> dotGraficas = new ArrayList<List>();
-            dotGraficas.add(datosEvento);
-//            System.out.println(dotGraficas.get(0));
-
-            s = gson.toJson(dotGraficas);
-        } catch (SQLException ex) {
-            Logger.getLogger(Graficas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        response.getWriter().print(s);
-    }
+    private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        this.eliminarTxt = Integer.parseInt(request.getParameter("IDeliminarJX"));
-//        this.buscarTxt = Integer.parseInt(request.getParameter("IDactualizarJX"));
-        System.out.println(eliminarTxt + " " + buscarTxt);
+        try {
 
-        doGet(request, response);
+            Gson gson = new Gson();
+            String eventoGson = null;
+
+            DaoEventos evDAO = new DaoEventos();
+
+            // Obtener lista de eventos.
+            List<Eventos> listaEventos = evDAO.ListarEventos();
+            eventoGson = gson.toJson(listaEventos);
+            //ENVIAR AQUÍ "eventoGson" AL SERVLET
+
+            
+            
+            
+            
+            // Agregar evento a la base de datos.
+            int tempAgregar = Integer.parseInt(request.getParameter("tempAgregar"));
+            if (tempAgregar == 1) {
+
+                String id = request.getParameter("id");
+                String ev = request.getParameter("ev");
+                System.out.println("ID:" + id);
+                System.out.println("EV:" + ev);
+                
+                // UNA VEZ OBTENIDO EL EVENTO, SE SEPARAN SUS ATRIBUTOS, PARA AGREGARLO A LA BASE DE DATOS.
+
+            }
+
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(EventoSv.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EventoSv.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

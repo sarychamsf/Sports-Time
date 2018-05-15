@@ -45,8 +45,6 @@
 
         %>
 
-
-
         <script>
 
             function Numeros(string) {//Solo numeros
@@ -105,7 +103,6 @@
             }
 
         </script>
-
 
     </head>
 
