@@ -9,7 +9,6 @@ import Dao.DaoEventos;
 import Datos.Eventos;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author MARIO
  */
 public class EventoSv extends HttpServlet {
-    
+
     private DaoEventos dao;
-    private int eliminarID;
-    private int buscarID;
+    private String eliminarTxt;
+    private String buscarTxt;
 
     public EventoSv() throws URISyntaxException, SQLException {
         super();
@@ -37,20 +36,21 @@ public class EventoSv extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         Gson gson = new Gson();
         String s = null;
+
         try {
             ///posiscion 0 //Lista Eventos
             List<Eventos> datosEvento = dao.ListarObj();
-            if (this.eliminarID != 0) {
-                dao.deleteObj(eliminarID);
-            }
-            
-            if (this.buscarID != 0) {
-                dao.buscarId(buscarID);
-            }
- 
-            
+//            if (this.eliminarTxt != 0) {
+//                dao.deleteObj(eliminarTxt);
+//            }
+//
+//            if (this.buscarTxt != 0) {
+//                dao.buscarId(buscarTxt);
+//            }
+
             /////Asignacion Gson
             List<List> dotGraficas = new ArrayList<List>();
             dotGraficas.add(datosEvento);
@@ -64,15 +64,10 @@ public class EventoSv extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.eliminarID = Integer.parseInt(request.getParameter("IDeliminarJX"));
-        this.buscarID = Integer.parseInt(request.getParameter("IDactualizarJX"));
-        System.out.println(eliminarID+" "+buscarID);
-        
-        
-        
-        
-        
-        
+//        this.eliminarTxt = Integer.parseInt(request.getParameter("IDeliminarJX"));
+//        this.buscarTxt = Integer.parseInt(request.getParameter("IDactualizarJX"));
+        System.out.println(eliminarTxt + " " + buscarTxt);
+
         doGet(request, response);
     }
 }

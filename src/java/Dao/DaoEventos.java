@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Dao;
 
 import Datos.Eventos;
@@ -15,21 +10,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author MARIO
- */
 public class DaoEventos {
-    
+
     private Connection connection;
 
     public DaoEventos() throws URISyntaxException, SQLException {
         connection = Conexion.getConnection();
     }
-    
+
     public List<Eventos> ListarObj() throws SQLException {
-        List<Eventos> objetosLista = new ArrayList<Eventos>();
-        String query = "SELECT * FROM EVENTOS";
+        List<Eventos> eventos = new ArrayList<Eventos>();
+        String query = "SELECT * FROM EVENTS";
         Connection connection = Conexion.getConnection();
         try {
             Statement st = connection.createStatement();
@@ -37,15 +28,15 @@ public class DaoEventos {
 
             while (rs.next()) {
 
-                Eventos registro = new Eventos();
-                
-                registro.setID_Evento(rs.getInt("ID_Evento"));
-                registro.setNombre(rs.getString("nombre"));
-                registro.setTipo(rs.getString("Tipo"));
-                registro.setFecha(rs.getString("fecha"));
-                registro.setLugar(rs.getString("lugar"));
+                Eventos evento = new Eventos();
 
-                objetosLista.add(registro);
+                evento.setStart_date(rs.getString("start_date"));
+                evento.setEnd_date(rs.getString("end_date"));
+                evento.setText(rs.getString("text"));
+                evento.setSubject(rs.getString("subject"));
+
+                eventos.add(evento);
+
             }
 
             st.close();
@@ -55,70 +46,66 @@ public class DaoEventos {
             e.printStackTrace();
         }
 
-        return objetosLista;
+        return eventos;
     }
-    
+
     public void addObjeto(Eventos objetoAdd) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO eventos (`nombre`, `Tipo`, `fecha`, `lugar`) VALUES (?, ?, ?, ?);");
+                    .prepareStatement("INSERT INTO events (`start_date`, `end_date`, `text`, `subject`) VALUES (?, ?, ?, ?);");
             // Parameters start with 1
-            preparedStatement.setString(1, objetoAdd.getNombre());
-            preparedStatement.setString(2, objetoAdd.getTipo());
-            preparedStatement.setString(3, objetoAdd.getFecha());
-            preparedStatement.setString(4, objetoAdd.getLugar());
+            preparedStatement.setString(1, objetoAdd.getStart_date());
+            preparedStatement.setString(2, objetoAdd.getEnd_date());
+            preparedStatement.setString(3, objetoAdd.getText());
+            preparedStatement.setString(4, objetoAdd.getSubject());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
-    public void deleteObj(int objetoID) {
+
+    public void deleteObj(String text) {
         try {
-            System.out.println("Entro a eliminar");
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("delete from eventos where ID_Evento=?");
+                    .prepareStatement("delete from events where text=?");
             // Parameters start with 1
-            preparedStatement.setInt(1, objetoID);
+            preparedStatement.setString(1, text);
             preparedStatement.executeUpdate();
-            System.out.println("Elimino La Evento");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
-    public void updateTabla(Eventos objetoUP, int cs) {
+
+    public void updateTabla(Eventos objetoUP, String text) {
         try {
-            System.out.println("Entro a Acturalizar");
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("update eventos set nombre=?, Tipo=?, fecha=?, lugar=? where ID_Evento=" + cs);
+                    .prepareStatement("update events set start_date=?, end_date=?, text=?, subject=? where text=" + text);
             // Parameters start with 1
-            preparedStatement.setString(1, objetoUP.getNombre());
-            preparedStatement.setString(2, objetoUP.getTipo());
-            preparedStatement.setString(3, objetoUP.getFecha());
-            preparedStatement.setString(4, objetoUP.getLugar());
+            preparedStatement.setString(1, objetoUP.getStart_date());
+            preparedStatement.setString(2, objetoUP.getEnd_date());
+            preparedStatement.setString(3, objetoUP.getText());
+            preparedStatement.setString(4, objetoUP.getSubject());
             preparedStatement.executeUpdate();
             System.out.println("Actualizo El Evento");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
-    public Eventos buscarId(int tablaId) {
+
+    public Eventos buscarId(String text) {
         Eventos tabla = new Eventos();
         try {
             PreparedStatement preparedStatement = connection.
-                    prepareStatement("select * from EVENTOS where ID_Evento=?");
-            preparedStatement.setInt(1, tablaId);
+                    prepareStatement("select * from EVENTS where text=?");
+            preparedStatement.setString(1, text);
             ResultSet rs = preparedStatement.executeQuery();
 
             if (rs.next()) {
-                tabla.setID_Evento(rs.getInt("ID_Evento"));
-                tabla.setNombre(rs.getString("nombre"));
-                tabla.setTipo(rs.getString("Tipo"));
-                tabla.setFecha(rs.getString("fecha"));
-                tabla.setLugar(rs.getString("lugar"));
+                tabla.setStart_date(rs.getString("start_date"));
+                tabla.setEnd_date(rs.getString("end_date"));
+                tabla.setText(rs.getString("text"));
+                tabla.setSubject(rs.getString("subject"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -126,5 +113,5 @@ public class DaoEventos {
 
         return tabla;
     }
-    
+
 }

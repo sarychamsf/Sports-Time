@@ -1,74 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Datos;
 
-/**
- *
- * @author MARIO
- */
 public class Eventos {
-    private int ID_Evento;
-    private String nombre;
-    private String Tipo;
-    private String fecha;
-    private String lugar;
+
+    private String start_date;
+    private String end_date;
+    private String text; // Descripción/nombre
+    private String subject; //Color
 
     public Eventos() {
     }
-    
-    public Eventos(String nombre, String Tipo, String fecha, String lugar) {
-        this.nombre = nombre;
-        this.Tipo = Tipo;
-        this.fecha = fecha;
-        this.lugar = lugar;
-    }
-    
-    public int getID_Evento() {
-        return ID_Evento;
+
+    public Eventos(String start_date, String end_date, String text, String subject) {
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.text = text;
+        this.subject = subject;
     }
 
-    public void setID_Evento(int ID_Evento) {
-        this.ID_Evento = ID_Evento;
+    public String getStart_date() {
+        return start_date;
     }
 
-    public String getNombre() {
-        return nombre;
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getEnd_date() {
+        return end_date;
     }
 
-    public String getTipo() {
-        return Tipo;
+    public void setEnd_date(String end_date) {
+        this.end_date = end_date;
     }
 
-    public void setTipo(String Tipo) {
-        this.Tipo = Tipo;
+    public String getText() {
+        return text;
     }
 
-    public String getFecha() {
-        return fecha;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public String getSubject() {
+        return subject;
     }
 
-    public String getLugar() {
-        return lugar;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
-    }
-
-    @Override
-    public String toString() {
-        return "Eventos{" + "ID_Evento=" + ID_Evento + ", nombre=" + nombre + ", Tipo=" + Tipo + ", fecha=" + fecha + ", lugar=" + lugar + '}';
-    }    
-    
 }
