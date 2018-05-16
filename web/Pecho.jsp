@@ -35,9 +35,7 @@
         <link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
         <link rel="stylesheet" href="./assets/css/personalizar.css">
 
-
         <%
-
             Crud_List lista1 = new Crud_List();
             Crud_Athele athele = new Crud_Athele();
             Crud_Coach crr = new Crud_Coach();
@@ -57,30 +55,21 @@
             h = "Tarde";
 
             for (int i1 = 0; i1 < lista1.findAll().size(); i1++) {
-
                 if (lista1.findAll().get(i1).getDate().equals(fecha_y_hora) && lista1.findAll().get(i1).getCoach_Name().equals(crr.findAll().get(identifiquer).getName() + " " + crr.findAll().get(identifiquer).getLastname()) && lista1.findAll().get(i1).getJornada().equals(h)) {
                     contador_arreglo++;
                 }
-
             }
 
             int[] temp2 = new int[contador_arreglo];
             int y = 0;
 
             for (int i = 0; i < lista1.findAll().size(); i++) {
-
                 if (lista1.findAll().get(i).getDate().equals(fecha_y_hora) && lista1.findAll().get(i).getCoach_Name().equals(crr.findAll().get(identifiquer).getName() + " " + crr.findAll().get(identifiquer).getLastname()) && lista1.findAll().get(i).getJornada().equals(h)) {
                     temp2[y] = i;
                     y++;
                 }
-
             }
-
-
         %>
-
-
-
 
         <script>
             $(document).ready(function () {
@@ -167,128 +156,155 @@
 
         </script>
 
+        <script>
+            $(document).ready(function () {
+                $('#sesionclose').click(function (event) {
+                    $.ajax({
+                        url: "Coach_Servlet",
+                        data: {Temp: "close"},
+                        type: "POST",
+                        success: function (respuesta) {
+                            if (respuesta.trim() == "close") {
+                                window.location.replace("Login.jsp");
+                            }
+                        }
+                    });
+                });
+            });
+
+        </script>
+
+        <style>
+
+            .reloj {
+                float: left;
+                font-size: -webkit-xxx-large;
+                font-family: Courier,sans-serif;
+                color: #363431;
+            }
+
+        </style>
+
     </head>
 
-    <body class="signup-page ">
+    <body class="signup-page" style="background-color: #CEEDFF;">
 
-
-        <nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" id="sectionsNav">
-            <div class="container">
-                <div class="navbar-translate">
+    <center>
+        <div class="container">
+            <div class="navbar-translate">
+                <center>
                     <div class="brand">
-                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/LogoNoLetra.png" alt="Sports Time" width=145 height=145> </a>
-                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/Nombre.png" alt="Sports Time" width=400 height=103> </a>
+                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/LOGORes.png" alt="Sports Time" width=80% height=80%> </a>
                     </div>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="./Coach.jsp" class="btn btn-info btn-round">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/SportsTimeUSA" target="_blank" data-original-title="Síguenos en Twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/Sports-Time-448388048915031/" target="_blank" data-original-title="Síguenos en Facebook">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/sports_time_usa/" target="_blank" data-original-title="Síguenos en Instagram">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                </center>
             </div>
+        </div>
+    </center>
 
-        </nav>
+    <div>
+        <div style="margin-bottom: 10px; margin-top: 10px;">
+            <center>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/SportsTimeUSA" target="_blank" data-original-title="Síguenos en Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/Sports-Time-448388048915031/" target="_blank" data-original-title="Síguenos en Facebook">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/sports_time_usa/" target="_blank" data-original-title="Síguenos en Instagram">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </center>
+        </div>
+        <br>
+        <center>
+            <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="./Coach.jsp" data-original-title="Perfil">
+                <i class="material-icons">face</i>
+            </a>
+            <input style="display:inline-block;margin-right:5px;" style="margin-bottom: 20px;" id="sesionclose" type="submit" value="Cerrar Sesion" class="btn btn-info btn-round">
+        </center>
+    </div>
 
-        <div class="page-header " data-parallax="true" style="background-image: url('assets/img/kit/bg2.jpg'); background-size: cover; background-position: top center">
-            <br><br><br><br><br><br><br><br><br><br><br>
-            <div class="main main-raised">
-                <div class="profile-content">
+    <br><br><br><br>
+    <div class="page-header">
+        <div class="main main-raised">
+            <div class="profile-content">
+                <center>
+                    <div class="profile">
+                        <br><br>
+                        <h2 class="card-title text-center">Rutinas de Pecho</h2>
+                    </div>
+                </center>
+                <div class="card-body" style="align-content: center;">
 
-                    <center>
-                        <div class="profile">
-                            <br><br>
-                            <h2 class="card-title text-center">Rutinas de Pecho</h2>
-                            <br>
-                        </div>
-                    </center>
-                    <div class="card-body" >
-                        <div style="align-self: center; margin-left: 640px;">
+                    <div style="align-self: center;">
 
-                            <div style="width:300px; height:200px;">
+                        <center>
+                            <div style="width:55%; height:45%;margin-bottom: 50px;padding-bottom: 50px;">
+
                                 <center>
                                     <div class="form-group">
                                         <div class="input-group">
                                             <img src="https://image.flaticon.com/icons/svg/106/106954.svg" alt="Sports Time" width=30 height=30 hspace="50">
 
-
-                                            <%                                                HttpSession misession4 = request.getSession(true);
+                                            <%                                                
+                                                HttpSession misession4 = request.getSession(true);
                                                 String h4 = String.valueOf(misession4.getAttribute("repeticiones"));
-
                                                 if (h4 != "null") {
-
-
                                             %>
-
 
                                             <p>&nbsp;</p><input id="Cantidad" type="text" class="form-control" placeholder="Cantidad" value="<%=h4%>">
 
-
                                             <%
-
-                                            } else {
-
-
+                                                } else {
                                             %>
+
                                             <p>&nbsp;</p><input id="Cantidad" type="text" class="form-control" placeholder="Cantidad">
-                                            <%                                                }
 
-                                            %>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <img src="https://image.flaticon.com/icons/svg/727/727613.svg" alt="Sports Time" width=30 height=30 hspace="50">
-
-                                            <%                                                                    HttpSession misession5 = request.getSession(true);
-                                                String h5 = String.valueOf(misession4.getAttribute("Distancia"));
-
-                                                if (h4 != "null") {
-
-
-                                            %>
-
-                                            <input id="Distancia" type="text" class="form-control" placeholder="Distancia" value="<%=h5%>">
-                                            <%
-
-                                            } else {
-
-
-                                            %>
-
-                                            <input id="Distancia" type="text" class="form-control" placeholder="Distancia">
-
-                                            <%                                                }
-
+                                            <%                   
+                                                }
                                             %>
                                         </div>
                                     </div>
                                 </center>
 
+                                <center>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <img src="https://image.flaticon.com/icons/svg/727/727613.svg" alt="Sports Time" width=30 height=30 hspace="50">
+
+                                            <%  
+                                                HttpSession misession5 = request.getSession(true);
+                                                String h5 = String.valueOf(misession4.getAttribute("Distancia"));
+                                                if (h4 != "null") {
+                                            %>
+
+                                            <input id="Distancia" type="text" class="form-control" placeholder="Distancia" value="<%=h5%>">
+
+                                            <%
+                                                } else {
+                                            %>
+
+                                            <input id="Distancia" type="text" class="form-control" placeholder="Distancia">
+
+                                            <%                                                
+                                                }
+                                            %>
+
+                                        </div>
+                                    </div>
+                                </center>
                             </div>
 
-                            <%                                int u = 1;
+                        </center>
+
+                    </div>
+
+                    <center>
+                        <div style="align-self: center; align-content: center;">                           
+                            <%                                
+                                int u = 1;
                                 for (int i = 0; i < temp2.length; i++) {
-
                                     if (lista1.findAll().get(temp2[i]).getAthele0().equals("Asistio")) {
-
                                         String Name_Athele = "Name_Athele" + u;
                                         String Minutos = "Minutos" + u;
                                         String Segundos = "Segundos" + u;
@@ -298,94 +314,89 @@
                                         String funcion = "inicio" + u + "();";
                                         String funcion2 = "parar" + u + "();";
                                         u++;
-
-
                             %>
 
-                        </div>
-
-
-                        <div class="form-group form-check-inline">
-
-                            <div id="contenedor1" class="form-check-inline" style="align-self: center;">
-
-                                <div style="margin: 40px; margin-left: 70px;">
-                                    <center>
-                                        <div class="form-group">
-                                            <input style="border:none; text-align: center;" type="text" readonly="readonly" id="<%=Name_Athele%>" value="<%=lista1.findAll().get(temp2[i]).getName_Athele0()%>"/>
+                            <div>
+                                <div id="contenedor1" class="form-check-inline">
+                                    <div>
+                                        <center>
+                                            <div class="form-group">
+                                                <input style="border:none; text-align: center;" type="text" readonly="readonly" id="<%=Name_Athele%>" value="<%=lista1.findAll().get(temp2[i]).getName_Athele0()%>"/>
+                                            </div>
+                                        </center>
+                                        <br><br>
+                                        <div>
+                                            <div class="reloj" id="<%=Minutos%>">00</div>
+                                            <div class="reloj" id="<%=Segundos%>">:00</div>
+                                            <div class="reloj" id="<%=Centesimas%>">:00</div>
                                         </div>
-                                    </center>
-                                    <p>&nbsp;</p>
-                                    <div class="reloj" id="<%=Minutos%>">00</div>
-                                    <div class="reloj" id="<%=Segundos%>">:00</div>
-                                    <div class="reloj" id="<%=Centesimas%>">:00</div>
-                                    <p>&nbsp;</p>
-                                    <center>
-                                        <input type="button" class="btn btn-success btn-round" id="<%=inicio%>" value="Start &#9658;" onclick="<%=funcion%>">
-                                        <input type="button" class="btn btn-danger btn-round" id="<%=parar%>" value="Stop &#8718;" onclick="<%=funcion2%>" disabled>
-                                    </center>
-                                    <p>&nbsp;</p>
-                                    <p>&nbsp;</p>
+                                        <br><br><br>
+                                        <center>
+                                            <input style="display:inline-block;margin-right:5px;" type="button" class="btn btn-success btn-round" id="<%=inicio%>" value="Start &#9658;" onclick="<%=funcion%>">
+                                            <input style="display:inline-block;margin-right:5px;" type="button" class="btn btn-danger btn-round" id="<%=parar%>" value="Stop &#8718;" onclick="<%=funcion2%>" disabled>
+                                        </center>
+                                        <br><br><br>
+                                    </div>
                                 </div>
 
+                                <%    }
+                                    }
+                                %>
+
                             </div>
-
-                            <%    }
-                                }
-                            %>
-
                         </div>
+                    </center>
 
-                        <br><br><br>
+                    <br><br><br>
 
-                        <center>
-                            <div>
-                                <input class="btn btn-info btn-lg" id="finalizar" type="submit" value="Finalizar" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="./Management.jsp" class="btn btn-info btn-lg">Volver</a>
-                            </div>
-                        </center>
-                        <br><br><br><br>
+                    <center>
+                        <div>
+                            <input style="display:inline-block;margin-right:5px;" class="btn btn-info btn-lg" id="finalizar" type="submit" value="Finalizar" />
+                            <a style="display:inline-block;margin-right:5px;" href="./Management.jsp" class="btn btn-info btn-lg">Volver</a>
+                        </div>
+                    </center>
 
-                    </div>
+                    <br><br><br><br>
+
                 </div>
             </div>
-
-            <footer class="footer" style="background-image: url('assets/img/kit/ft.jpg'); background-size: cover; background-position: top center;">
-                <div class="container">
-                    <br>
-                    <center>
-                        &copy;
-                        <script>
-            document.write(new Date().getFullYear())
-                        </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños
-                    </center>
-                </div>
-            </footer>
-
         </div>
 
+        <footer class="footer" style="background-color: #CEEDFF;">
+            <div class="container">
+                <br>
+                <center>
+                    &copy;
+                    <script>
+            document.write(new Date().getFullYear())
+                    </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños
+                </center>
+            </div>
+        </footer>
+
+    </div>
 
 
 
 
 
-        <!--   Core JS Files   -->
-        <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script src="./assets/js/core/jquery.min.js"></script>
-        <script src="./assets/js/core/popper.min.js"></script>
-        <script src="./assets/js/bootstrap-material-design.js"></script>
-        <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-        <script src="./assets/js/plugins/moment.min.js"></script>
-        <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-        <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-        <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-        <script src="./assets/js/plugins/nouislider.min.js"></script>
-        <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-        <script src="./assets/js/material-kit.js?v=2.0.2"></script>
-        <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-        <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
-        <script>
+
+    <!--   Core JS Files   -->
+    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/bootstrap-material-design.js"></script>
+    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+    <script src="./assets/js/plugins/moment.min.js"></script>
+    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="./assets/js/plugins/nouislider.min.js"></script>
+    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+    <script src="./assets/js/material-kit.js?v=2.0.2"></script>
+    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+    <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
+    <script>
             $(document).ready(function () {
 
                 //init DateTimePickers
@@ -394,9 +405,9 @@
                 // Sliders Init
                 materialKit.initSliders();
             });
-        </script>
+    </script>
 
-    </body>
+</body>
 
 
 </html>

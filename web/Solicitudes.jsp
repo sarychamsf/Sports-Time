@@ -33,7 +33,6 @@
             } else if (rol.equals("Deportista")) {
                 ju = "Athlete.jsp";
             }
-
         %>
 
         <script>

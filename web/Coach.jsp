@@ -111,8 +111,6 @@
                             if (respuesta.trim() == "close") {
                                 window.location.replace("Login.jsp");
                             }
-
-
                         }
                     });
                 });
@@ -403,104 +401,108 @@
 
                                     </div>
 
+
                                     <div class="col-md-5 mr-auto">
 
                                         <br><h3 class="card-title text-center">Gestion:</h3><br>
-                                        <div class="form-group">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <h6>Tomar Asistencia:</h6>
-                                                <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA TOMAR LISTA:" data-content="Selecciona la jornada y presiona el boton LISTA."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+
+                                        <center>
+                                            <div class="form-group">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <h6>Tomar Asistencia:</h6>
+                                                    <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA TOMAR LISTA:" data-content="Selecciona la jornada y presiona el boton LISTA."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                    <img src="https://image.flaticon.com/icons/svg/577/577597.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Role1" onClick="value = 1" value="Work day" > Mañana
-                                                    <span class="circle">
-                                                        <span class="check"></span>
-                                                    </span>
-                                                </label>
+
+                                            <div class="form-group">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <img src="https://image.flaticon.com/icons/svg/577/577597.svg" alt="Sports Time" width=30 height=30 hspace="13">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Role1" onClick="value = 1" value="Work day" > Mañana
+                                                        <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <label class="form-check-label">  
+                                                        <img src="https://image.flaticon.com/icons/svg/624/624106.svg" alt="Sports Time" width=30 height=30 hspace="13">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Role2" onClick="value = 2" value="Work day"> Tarde
+                                                        <span class="circle">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div>
                                             </div>
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">  
-                                                    <img src="https://image.flaticon.com/icons/svg/624/624106.svg" alt="Sports Time" width=30 height=30 hspace="13">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Role2" onClick="value = 2" value="Work day"> Tarde
-                                                    <span class="circle">
-                                                        <span class="check"></span>
-                                                    </span>
-                                                </label>
+                                            <div class="form-group">
+                                                <div class="card-footer justify-content-center">
+                                                    <input id="list1" type="submit" value="Lista" class="btn btn-info btn-round">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="card-footer justify-content-center">
-                                                <input id="list1" type="submit" value="Lista" class="btn btn-info btn-round">
-                                            </div>
-                                        </div>
 
 
-                                        <div class="form-group">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <h6>Gestion de entrenamiento:</h6>
-                                                <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA INICIAR UN ENTRENAMIENTO:" data-content="Presiona el boton ENTRENAMIENTO."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                            <div class="form-group">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <h6>Gestion de entrenamiento:</h6>
+                                                    <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA INICIAR UN ENTRENAMIENTO:" data-content="Presiona el boton ENTRENAMIENTO."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="card-footer justify-content-center">
-                                                <input  id="management1" type="submit" value="Entrenamiento" class="btn btn-info btn-round">
+                                            <div class="form-group">
+                                                <div class="card-footer justify-content-center">
+                                                    <input  id="management1" type="submit" value="Entrenamiento" class="btn btn-info btn-round">
+                                                </div>
                                             </div>
-                                        </div>
 
 
-                                        <div class="form-group">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <h6>Ver graficas de entrenamiento:</h6>
-                                                <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER LAS GRAFICAS DE RENDIMIENTO:" data-content="Presiona el boton ENTRENAMIENTO."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                            <div class="form-group">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <h6>Ver graficas de entrenamiento:</h6>
+                                                    <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER LAS GRAFICAS DE RENDIMIENTO:" data-content="Presiona el boton ENTRENAMIENTO."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="card-footer justify-content-center">
-                                                <input id="GraficaEnt" type="submit" value="Graficas" class="btn btn-info btn-round">
+                                            <div class="form-group">
+                                                <div class="card-footer justify-content-center">
+                                                    <input id="GraficaEnt" type="submit" value="Graficas" class="btn btn-info btn-round">
+                                                </div>
                                             </div>
-                                        </div>
 
 
-                                        <div class="form-group">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <h6>Notificaciones:</h6>
-                                                <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER LAS NOTIFICACIONES:" data-content="Presiona el boton NOTIFICACIONES."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                            <div class="form-group">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <h6>Muro de Notificaciones:</h6>
+                                                    <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER EL MURO DE NOTIFICACIONES:" data-content="Presiona el boton MURO DE NOTIFICACIONES. Allí podrás ver y comentar las publicaciones de los demás, o incluso, haz tu propia publicación." data-content="Presiona el boton NOTIFICACIONES."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="card-footer justify-content-center">
-                                                <input id="muro" type="submit" value="Notificaciones" class="btn btn-info btn-round">
+                                            <div class="form-group">
+                                                <div class="card-footer justify-content-center">
+                                                    <input id="muro" type="submit" value="Notificaciones" class="btn btn-info btn-round">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <h6>Calendario de Eventos:</h6>
-                                                <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER O CREAR EVENTOS:" data-content="Presiona el boton EVENTOS."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                            <div class="form-group">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <h6>Calendario de Eventos:</h6>
+                                                    <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER O CREAR EVENTOS:" data-content="Presiona el boton EVENTOS."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="card-footer justify-content-center">
-                                                <input id="calendario" type="submit" value="Eventos" class="btn btn-info btn-round">
+                                            <div class="form-group">
+                                                <div class="card-footer justify-content-center">
+                                                    <input id="calendario" type="submit" value="Eventos" class="btn btn-info btn-round">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group">
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <h6>Amigos:</h6>
-                                                <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER SUS AMIGOS O AGREGAR NUEVOS:" data-content="Presiona el boton AMIGOS."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                            <div class="form-group">
+                                                <div class="form-check form-check-radio form-check-inline">
+                                                    <h6>Amigos:</h6>
+                                                    <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="PARA VER SUS AMIGOS O AGREGAR NUEVOS:" data-content="Presiona el boton AMIGOS."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="card-footer justify-content-center">
-                                                <input id="Solicitudes" type="submit" value="Amigos" class="btn btn-info btn-round">
+                                            <div class="form-group">
+                                                <div class="card-footer justify-content-center">
+                                                    <input id="Solicitudes" type="submit" value="Amigos" class="btn btn-info btn-round">
+                                                </div>
                                             </div>
-                                        </div>
-
+                                        </center>        
                                     </div>
 
                                 </div>

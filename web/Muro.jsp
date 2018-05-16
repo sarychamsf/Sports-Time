@@ -40,16 +40,13 @@
             } else if (rol.equals("Deportista")) {
                 ju = "Athlete.jsp";
             }
-
         %>
 
-
-        <%                  HttpSession misession = request.getSession(true);
+        <%                  
+            HttpSession misession = request.getSession(true);
             String name = null;
             String fotoName = null;
-
             if (misession.getAttribute("usuario") == "Entrenador") {
-
                 Crud_Coach crr = new Crud_Coach();
                 HttpSession misession1 = request.getSession(true);
                 String h = String.valueOf(misession1.getAttribute("v"));
@@ -57,9 +54,7 @@
                 name = crr.findAll().get(identifiquer).getName() + " " + crr.findAll().get(identifiquer).getLastname();
                 fotoName = crr.findAll().get(identifiquer).getFotoName();
             }
-
             if (misession.getAttribute("usuario") == "Deportista") {
-
                 Crud_Athele crr = new Crud_Athele();
                 HttpSession misession1 = request.getSession(true);
                 String h = String.valueOf(misession1.getAttribute("v"));
@@ -68,11 +63,7 @@
                 fotoName = crr.findAll().get(identifiquer).getFotoName();
            
             }
-
-            
-            
         %>
-
 
         <script>
             $(document).ready(function () {
