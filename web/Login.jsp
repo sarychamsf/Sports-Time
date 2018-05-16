@@ -76,110 +76,108 @@
 
     </head>
 
+    <body class="index-page" style="background-color: #CEEDFF;">
 
-    <body class="index-page ">
-
-        <nav class="navbar  navbar-transparent    navbar-absolute  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
-            <div class="container">
-                <div class="navbar-translate">
+    <center>
+        <div class="container">
+            <div class="navbar-translate">
+                <center>
                     <div class="brand">
-                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/LogoNoLetra.png" alt="Sports Time" width=145 height=145> </a>
-                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/Nombre.png" alt="Sports Time" width=400 height=103> </a>
+                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/LOGORes.png" alt="Sports Time" width=80% height=80%> </a>
                     </div>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <a href="./Registro.jsp" class="btn btn-info btn-round">Regístrate</a>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/SportsTimeUSA" target="_blank" data-original-title="Síguenos en Twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/Sports-Time-448388048915031/" target="_blank" data-original-title="Síguenos en Facebook">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/sports_time_usa/" target="_blank" data-original-title="Síguenos en Instagram">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                </center>
             </div>
-        </nav>
+        </div>
+    </center>
 
-        <div  class="page-header" data-parallax="true" style="background-image: url('assets/img/kit/bg2.jpg');">    
-            <div class="container">            
-                <br><br><br><br><br><br><br>
-                <div class="row">
-                    <div class="col-md-10 ml-auto mr-auto">
-                        <div class="card card-signup">
-                            <br><br><br><br>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto mr-auto">
-                                        <div class="card card-signup" style="background-image: url('assets/img/kit/ft.jpg');">
-                                            <div class="card-header text-center" style="background-image: url('assets/img/kit/azul.jpg');">
-                                                <h5 class="card-title text-center"><b>INICIA SESIÓN EN SPORTS TIME</b></h5>
+    <div>
+        <div style="margin-bottom: 10px; margin-top: 10px;">
+            <center>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/SportsTimeUSA" target="_blank" data-original-title="Síguenos en Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/Sports-Time-448388048915031/" target="_blank" data-original-title="Síguenos en Facebook">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/sports_time_usa/" target="_blank" data-original-title="Síguenos en Instagram">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </center>
+        </div>
+        <center>
+            <a style="margin-bottom: 20px;" href="./Registro.jsp" class="btn btn-info btn-round">Regístrate</a>
+        </center>
+    </div>
+
+    <div class="page-header" style="">    
+        <div class="container">            
+            <div class="row">
+                <div class="col-md-10 ml-auto mr-auto">
+                    <div class="card card-signup">
+                        <br><br><br><br>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4 ml-auto mr-auto">
+                                    <div class="card card-signup" style="background-image: url('assets/img/kit/ft.jpg');">
+                                        <div class="card-header text-center" style="background-image: url('assets/img/kit/azul.jpg');">
+                                            <h5 class="card-title text-center"><b>INICIA SESIÓN EN SPORTS TIME</b></h5>
+                                        </div>
+                                        <p class="text-divider">Ingresa tus datos para iniciar sesión:</p>
+                                        <div class="card-body" style="background-image: url('assets/img/kit/ft.jpg');">
+                                            <div class="input-group">
+                                                <img src="https://image.flaticon.com/icons/svg/138/138672.svg" alt="Sports Time" width=27 height=27  hspace="3">
+                                                <input id="username1" type="text" class="form-control" placeholder="Nombre">
                                             </div>
-                                            <p class="text-divider">Ingresa tus datos para iniciar sesión:</p>
-                                            <div class="card-body" style="background-image: url('assets/img/kit/ft.jpg');">
-                                                <div class="input-group">
-                                                    <img src="https://image.flaticon.com/icons/svg/138/138672.svg" alt="Sports Time" width=27 height=27  hspace="3">
-                                                    <input id="username1" type="text" class="form-control" placeholder="Nombre">
-                                                </div>
-                                                <div class="input-group">
-                                                    <img src="https://image.flaticon.com/icons/svg/204/204310.svg" alt="Sports Time" width=27 height=27  hspace="3">
-                                                    <input type="password" id="password2" class="form-control" placeholder="Contraseña">
-                                                </div>
+                                            <div class="input-group">
+                                                <img src="https://image.flaticon.com/icons/svg/204/204310.svg" alt="Sports Time" width=27 height=27  hspace="3">
+                                                <input type="password" id="password2" class="form-control" placeholder="Contraseña">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <br>
-                                <div class="card-footer justify-content-center">
-                                    <input id="login1" type="submit" value="Iniciar sesión" class ="btn btn-info btn-lg" />
-                                </div>
-                                <br><br>
                             </div>
+                            <br>
+                            <div class="card-footer justify-content-center">
+                                <input id="login1" type="submit" value="Iniciar sesión" class ="btn btn-info btn-lg" />
+                            </div>
+                            <br><br>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <footer class="footer" style="background-image: url('assets/img/kit/ft.jpg'); background-size: cover; background-position: top center;">
-            <div class="container">
-                <br>
-                <center>
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños
-                </center>
-            </div>
-        </footer>
+    </div>
 
-        <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <footer class="footer" style="background-color: #CEEDFF;">
+        <div class="container">
+            <br>
+            <center>
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños
+            </center>
+        </div>
+    </footer>
 
-    </body>
+    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 
-    <!--   Core JS Files   -->
-    <script src="./assets/js/core/jquery.min.js"></script>
-    <script src="./assets/js/core/popper.min.js"></script>
-    <script src="./assets/js/bootstrap-material-design.js"></script>
-    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-    <script src="./assets/js/plugins/moment.min.js"></script>
-    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-    <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="./assets/js/plugins/nouislider.min.js"></script>
-    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-    <script src="./assets/js/material-kit.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
+</body>
+
+<!--   Core JS Files   -->
+<script src="./assets/js/core/jquery.min.js"></script>
+<script src="./assets/js/core/popper.min.js"></script>
+<script src="./assets/js/bootstrap-material-design.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+<script src="./assets/js/plugins/moment.min.js"></script>
+<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="./assets/js/plugins/nouislider.min.js"></script>
+<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="./assets/js/material-kit.js?v=2.0.2"></script>
+<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+<script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
 
 </html>

@@ -241,11 +241,11 @@
             </center>
         </div>
         <center>
-            <button style="margin-bottom: 20px;" href="./Registro.jsp" class="btn btn-info btn-round">Regístrate</button>
+            <input style="margin-bottom: 20px;" id="sesionclose" type="submit" value="Cerrar Sesion" class="btn btn-info btn-round">
         </center>
     </div>
 
-    <div class="page-header " style="background-color: #CEEDFF;">
+    <div class="page-header">
         <div class="profile-content">
             <div class="container">
                 <div class="row">
@@ -513,7 +513,7 @@
         </div>
     </div>
 
-    <footer class="footer" style="background-image: url('assets/img/kit/ft.jpg'); background-size: cover; background-position: top center;">
+    <footer class="footer" style="background-color: #CEEDFF;">
         <div class="container">
             <br>
             <center>
