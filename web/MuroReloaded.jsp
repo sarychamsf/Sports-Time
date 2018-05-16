@@ -43,7 +43,6 @@
 
         %>
 
-
         <%                  HttpSession misession = request.getSession(true);
             String name = null;
             String fotoName = null;
@@ -72,7 +71,6 @@
             
             
         %>
-
 
         <script>
             $(document).ready(function () {
@@ -123,7 +121,7 @@
 
         <style>
 
-            html, body, div, span, applet, object, iframe, h1, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
                 margin: 0;
                 padding: 0;
                 border: 0;
@@ -273,21 +271,11 @@
                 background-color: #45a049;
             }
 
-            .containerC {
+            .container {
                 border-radius: 5px;
                 background-color: #BEE2F8;
                 padding: 20px;
             }
-
-
-            .line{
-                align-self: center;
-                width: 87%;
-                border-bottom: 1px solid black;
-            }
-
-
-
         </style>
 
     </head>
@@ -350,7 +338,7 @@
                                     <div class="description">
                                         <h3 class="info-title"> <img src="https://image.flaticon.com/icons/svg/149/149066.svg" alt="Rutina" width=36 height=36 hspace="5"> Muro - Notificaciones.</h3>
 
-                                        <center>
+                                        <center>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <div class="form-check form-check-radio form-check-inline">
                                                 <h6>Ayuda:</h6>
                                                 <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="LAS NOTIFICACIONES..." data-content="Te permiten publicar un mensaje y que los demás lo vean. Este posee una duración en DÍAS."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
@@ -359,159 +347,38 @@
                                     </div>
                                 </div>
 
-                                <div class="containerC" style="padding-top: 20px; margin: 20px; width: 800px; align-self:center;">
 
-                                    <label for="name">Título</label>
-                                    <input type="text" id="name" name="name" placeholder="Título...">
+                                <div class="container" style="padding-top: 20px; margin: 20px; width: 800px; align-self:center;">
 
-                                    <label for="duracion">Duración (en días)</label>
-                                    <input id="duracion" type="text" name="duracion" placeholder="Duración en días...">
+                                        <label for="name">Título</label>
+                                        <input type="text" id="lname" name="name" placeholder="Título...">
 
-                                    <label for="mensaje">Mensaje</label>
-                                    <textarea id="mensaje" name="message" placeholder="Descripción..." style="height:300px"></textarea>
+                                        <label for="lname">Duración (en días)</label>
+                                        <input id="duracion" type="text" name="duracion" placeholder="Duración en días...">
 
-                                    <input id="publicar" type="submit" value="Publicar">
+                                        <label for="subject">Mensaje</label>
+                                        <textarea id="mensaje" name="message" placeholder="Descripción..." style="height:300px"></textarea>
 
-                                </div>    
+                                        <input id="publicar" type="submit" value="Publicar">
 
-                                <div class="line"></div>
-
+                                </div>       
 
 
 
-                                <%
-
-                                    Crud_Comments co = new Crud_Comments();
-                                    Crud_Comments_User couser = new Crud_Comments_User();
-                                    Date date = new Date();
-                                    DateFormat hourdateFormat = new SimpleDateFormat("yyyy/MM/dd");
-                                    String fecha_y_hora = hourdateFormat.format(date);
-
-                                    for (int i = 0; i < co.findAll().size(); i++) {
-                                        if (fecha_y_hora.equals(co.findAll().get(i).getDate())) {
-                                            co.delete(fecha_y_hora);
-                                        }
-                                    }
-
-                                    for (int i = 0; i < couser.findAll().size(); i++) {
-                                        if (fecha_y_hora.equals(couser.findAll().get(i).getDate())) {
-                                            couser.delete(fecha_y_hora);
-                                        }
-                                    }
-
-                                    for (int i = 0; i < co.findAll().size(); i++) {
-
-                                %> 
-
-                                <div style="background-image: url('assets/img/kit/ft.jpg'); width:600px; height: 500px; align-self: center; padding: 30px">
-                                    <center>
-                                        <h5 class="info-title"> Publicado por: </h5>
-                                        <% out.println("<h2 class=\"text-divider\">" + co.findAll().get(i).getId() + "</h2>"); %>
-                                        <br>
-                                        <h5 class="info-title"> Título: </h5>
-                                        <% out.println("<h2 class=\"text-divider\"> \"" + co.findAll().get(i).getName() + "\"</h2>"); %>
-                                        <br>
-                                        <h4 class="info-title"> Mensaje: </h4>
-                                        <% out.println("<p class=\"text-divider\">" + co.findAll().get(i).getText() + "</p>"); %>
-                                    </center>
-
-                                </div>
-
-                                <%
-
-                                    String itera = String.valueOf(i);
-
-                                    for (int i2 = 0; i2 < couser.findAll().size(); i2++) {
-
-                                        if (i2 == 0) {
-
-                                %>
-
-                                <h3 class="info-title" style="align-self: center; margin: 50px">Comentarios de esta publicación:</h3>
-
-                                <%}
-
-                                    if (couser.findAll().get(i2).getIdcomments().equals(itera)) {
-
-                                %> 
-
-                                <div style="background-image: url('assets/img/kit/ft.jpg'); width:800px; height: 300px; align-self: center; padding: 30px">
-                                    <center>
-                                        <h5 class="info-title"> Comentado por: </h5>
-                                        <% out.println("<h3 class=\"text-divider\">" + couser.findAll().get(i2).getId() + "</h3>"); %>
-                                        <br>
-                                        <h4 class="info-title"> Mensaje: </h4>
-                                        <% out.println("<p class=\"text-divider\">" + couser.findAll().get(i2).getText() + "</p>"); %>
-                                    </center>
-
-                                </div>
 
 
-                                <center>
-                                    <br><br>
-                                    <p style="color:#17AEED">___________________________________________________________________</p>
-                                    <br>
-                                </center>
 
 
-                                <%    }
-
-                                    }
-
-                                    String temp1 = "idcomment" + itera;
-                                    String temp2 = "mensajecomment" + itera;
-                                    String temp3 = "duracioncomment" + itera;
-                                    String temp4 = "comentar" + itera;
-
-                                    out.println("</center>");
-
-                                %>
-
-
-                                <h3 class="info-title" style="align-self: center; margin: 50px">Comenta esta publicación <%=name%>...</h3>
-
-                                <div style="background-image: url('assets/img/kit/ft.jpg'); width:450px; height: 500px; align-self: center">
-                                    <div class="info info-horizontal">
-                                        <h4 class="info-title">Título:</h4>
-                                        <div class="description">
-                                            <input id="<%=temp1%>" type="text" readonly=â€readonlyâ€ value="<%=name%>" class="form-control"/> 
-                                        </div>
+                                <div class="post-author-bio clearfix" style="margin-left: 20
+                                     px;margin-right: 20px">
+                                    <img alt="" src="https://secure.gravatar.com/avatar/a856f0348a2e1c8fa9c2b8b4f1e618d7?s=114&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/a856f0348a2e1c8fa9c2b8b4f1e618d7?s=228&amp;d=mm&amp;r=g 2x" class="avatar avatar-114 photo" height="114" width="114"> 
+                                    <div class="post-author-bio-content">
+                                        <h2 class="post-author-name">
+                                            <a href="/author/Jake-Rocheleau">By Jake Rocheleau</a>
+                                        </h2>
+                                        <div class="author-bio-text">Jake is a writer and user experience designer on the web. He publishes articles discussing HTML5/CSS3 and jQuery coding techniques. Find out more on <a href="http://byjakewithlove.com/">his website</a> or you can follow his updates on Twitter <a href="http://twitter.com/jakerocheleau">@jakerocheleau</a>    <a data-title="Articles by Jake Rocheleau" href="/author/Jake-Rocheleau">More articles </a> by Jake Rocheleau  </div>
                                     </div>
-
-                                    <div class="info info-horizontal">
-                                        <h4 class="info-title">Duración del comentario (días):</h4>
-                                        <div class="description">
-                                            <input id="<%=temp3%>" type="text" name="duracion" class="form-control" placeholder="Duración...">
-                                        </div>
-                                    </div>
-
-                                    <div class="info info-horizontal">
-                                        <div class="description">
-                                            <h4 class="info-title">Comentario:</h4>
-                                            <textarea id="<%=temp2%>" name="message" rows="10" cols="40" class="form-control" placeholder="Mensaje..."></textarea>
-                                        </div>
-                                    </div>
-
-                                    <center>
-                                        <input id="<%=temp4%>" type="submit" value="Comentar" onclick="redirigir('<%=itera%>')" class="btn btn-info btn-round">
-                                    </center>
-
                                 </div>
-
-
-                                <br><br><br><br><br><br>
-
-                                <center>
-                                    <br><br>
-                                    <p style="color:#17AEED">_____________________________________________________________________________________________________________________________________________</p>
-                                    <br>
-                                </center>
-
-                                <%
-
-                                    }
-
-                                %>
 
 
 
