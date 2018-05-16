@@ -30,6 +30,7 @@ public class DaoEventos {
 
                 Eventos evento = new Eventos();
 
+                evento.setId(rs.getInt("id"));
                 evento.setStart_date(rs.getString("start_date"));
                 evento.setEnd_date(rs.getString("end_date"));
                 evento.setText(rs.getString("text"));
@@ -52,12 +53,13 @@ public class DaoEventos {
     public void addEvento(Eventos objetoAdd) {
         try {
             PreparedStatement preparedStatement = connection
-                    .prepareStatement("INSERT INTO events (`start_date`, `end_date`, `text`, `subject`) VALUES (?, ?, ?, ?);");
+                    .prepareStatement("INSERT INTO events (`id`, `start_date`, `end_date`, `text`, `subject`) VALUES (?, ?, ?, ?, ?);");
             // Parameters start with 1
-            preparedStatement.setString(1, objetoAdd.getStart_date());
-            preparedStatement.setString(2, objetoAdd.getEnd_date());
-            preparedStatement.setString(3, objetoAdd.getText());
-            preparedStatement.setString(4, objetoAdd.getSubject());
+            preparedStatement.setInt(1, (int) objetoAdd.getId());
+            preparedStatement.setString(2, objetoAdd.getStart_date());
+            preparedStatement.setString(3, objetoAdd.getEnd_date());
+            preparedStatement.setString(4, objetoAdd.getText());
+            preparedStatement.setString(5, objetoAdd.getSubject());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

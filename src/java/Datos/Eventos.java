@@ -2,6 +2,7 @@ package Datos;
 
 public class Eventos {
 
+    private long id;
     private String start_date;
     private String end_date;
     private String text; // Descripción/nombre
@@ -10,6 +11,7 @@ public class Eventos {
     public Eventos() {
     }
 
+    // Constructor sin id.
     public Eventos(String start_date, String end_date, String text, String subject) {
         this.start_date = start_date;
         this.end_date = end_date;
@@ -17,6 +19,14 @@ public class Eventos {
         this.subject = subject;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public String getStart_date() {
         return start_date;
     }
@@ -47,6 +57,11 @@ public class Eventos {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    @Override
+    public String toString() {
+        return "Eventos{" + "id=" + id + ", start_date=" + start_date + ", end_date=" + end_date + ", text=" + text + ", subject=" + subject + '}';
     }
 
 }
