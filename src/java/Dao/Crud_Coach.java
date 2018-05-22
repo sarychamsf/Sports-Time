@@ -150,9 +150,20 @@ public class Crud_Coach {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return result;
-        
+
     }
 
+//    public String getCoachImageById(String id) throws SQLException {
+//        Connection connection = Conexion.getConnection();
+//        Statement st = connection.createStatement();
+//        ResultSet rs = st.executeQuery("SELECT FROM coach_register where id=" + id);
+//
+//        Register coach = new Register();
+//        if (rs.next()) {
+//            coach.setFotoName(rs.getString("FotoName"));
+//        }
+//        return coach.getFotoName();
+//    }
 }

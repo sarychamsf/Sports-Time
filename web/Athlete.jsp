@@ -388,7 +388,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="card-footer justify-content-center">
-                                                    <input id="muro" type="submit" value="Notificaciones" class="btn btn-info btn-round">
+                                                    <input id="muro" type="submit" value="Muro de Notificaciones" class="btn btn-info btn-round">
                                                 </div>
                                             </div>
 

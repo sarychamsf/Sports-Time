@@ -165,5 +165,16 @@ public class Crud_Athele {
         return result;
     }
 
+//    public String getAthleteImageById(String id) throws SQLException {
+//        Connection connection = Conexion.getConnection();
+//        Statement st = connection.createStatement();
+//        ResultSet rs = st.executeQuery("SELECT FROM athele_register where id=" + id);
+//
+//        Register coach = new Register();
+//        if (rs.next()) {
+//            coach.setFotoName(rs.getString("FotoName"));
+//        }
+//        return coach.getFotoName();
+//    }
+//
 }
-

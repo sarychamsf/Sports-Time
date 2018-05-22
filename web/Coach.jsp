@@ -202,9 +202,47 @@
 
         </script>
 
+        <style>
+
+            .scrollup{
+                width:40px;
+                height:40px;
+                opacity:0.7;
+                z-index:1000;
+                position:fixed;
+                bottom:70px;
+                right:50px;
+                display:none;
+                text-indent:-9999px;
+                background: url('./assets/img/up-arrow.png') no-repeat;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('.scrollup').fadeIn();
+                    } else {
+                        $('.scrollup').fadeOut();
+                    }
+                });
+
+                $('.scrollup').click(function () {
+                    $("html, body").animate({scrollTop: 0}, 600);
+                    return false;
+                });
+
+            });
+        </script>
+
     </head>
 
     <body class="signup-page " style="background-color: #CEEDFF;">
+
+        <a href="#" class="scrollup">Scroll</a>
 
     <center>
         <div class="container">
@@ -215,7 +253,7 @@
                     </div>
                 </center>
             </div>
-        </div>
+        </div> 
     </center>
 
     <%Crud_Coach crr = new Crud_Coach();
@@ -475,7 +513,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="card-footer justify-content-center">
-                                                    <input id="muro" type="submit" value="Notificaciones" class="btn btn-info btn-round">
+                                                    <input id="muro" type="submit" value="Muro de Notificaciones" class="btn btn-info btn-round">
                                                 </div>
                                             </div>
 

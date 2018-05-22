@@ -30,6 +30,7 @@
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
         <link rel="stylesheet" href="./assets/css/material-kit.css?v=2.0.2">
+        <link rel="stylesheet" href="./assets/css/personalizar.css">
 
         <%
             HttpSession misession34 = request.getSession(true);
@@ -62,18 +63,16 @@
                 name = crr.findAll().get(identifiquer).getName() + " " + crr.findAll().get(identifiquer).getLastname();
                 fotoName = crr.findAll().get(identifiquer).getFotoName();
            
-            }
+            }       
         %>
 
         <script>
             $(document).ready(function () {
                 $('#publicar').click(function (event) {
 
-
                     var name = $('#name').val();
                     var mensaje = $('#mensaje').val();
                     var duracion = $('#duracion').val();
-
                     $.ajax({
                         url: "Wall_Servlet",
                         data: {temp: "publicar", name: name, mensaje: mensaje, duracion: duracion},
@@ -82,19 +81,15 @@
                             if (respuesta.trim() == "publicar") {
                                 window.location.replace("Muro.jsp");
                             }
-
-
                         }
                     });
                 });
             });
-
         </script>
 
         <script>
             $(document).ready(function () {
                 $('#volver').click(function (event) {
-
                     $.ajax({
                         url: "Wall_Servlet",
                         data: {temp: "volver"},
@@ -103,8 +98,23 @@
                             if (respuesta.trim() == "volver") {
                                 window.location.replace("<%=ju%>");
                             }
+                        }
+                    });
+                });
+            });
+        </script>
 
-
+        <script>
+            $(document).ready(function () {
+                $('#sesionclose').click(function (event) {
+                    $.ajax({
+                        url: "Coach_Servlet",
+                        data: {Temp: "close"},
+                        type: "POST",
+                        success: function (respuesta) {
+                            if (respuesta.trim() == "close") {
+                                window.location.replace("Login.jsp");
+                            }
                         }
                     });
                 });
@@ -114,7 +124,44 @@
 
         <style>
 
-            html, body, div, span, applet, object, iframe, h1, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+            .scrollup{
+                width:40px;
+                height:40px;
+                opacity:0.7;
+                z-index:1000;
+                position:fixed;
+                bottom:70px;
+                right:50px;
+                display:none;
+                text-indent:-9999px;
+                background: url('./assets/img/up-arrow.png') no-repeat;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('.scrollup').fadeIn();
+                    } else {
+                        $('.scrollup').fadeOut();
+                    }
+                });
+
+                $('.scrollup').click(function () {
+                    $("html, body").animate({scrollTop: 0}, 600);
+                    return false;
+                });
+
+            });
+        </script>
+
+
+        <style>
+
+            html, body, div, span, applet, object, iframe, h1, h4, h5, h6, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
                 margin: 0;
                 padding: 0;
                 border: 0;
@@ -199,7 +246,7 @@
             .post-author-bio {
                 margin: 20px auto 10px;
                 padding: 40px 30px;
-                background: #BEE2F8;
+                background: #CEEDFF;
                 color: #fff;
             }
 
@@ -233,6 +280,7 @@
                 box-sizing: border-box;
                 -webkit-box-sizing: border-box;
                 -moz-box-sizing: border-box;
+                color: #5ca7d5;
             }
 
         </style>
@@ -252,7 +300,7 @@
             }
 
             input[type=submit] {
-                background-color: #4CAF50;
+                background-color: #4CAF50; 
                 color: white;
                 padding: 12px 20px;
                 border: none;
@@ -266,7 +314,7 @@
 
             .containerC {
                 border-radius: 5px;
-                background-color: #BEE2F8;
+                background-color: #CEEDFF; <%--BEE2F8--%>
                 padding: 20px;
             }
 
@@ -274,287 +322,324 @@
             .line{
                 align-self: center;
                 width: 87%;
-                border-bottom: 1px solid black;
+                border-bottom: 1px solid #17AEED;
+                margin-top: 30px;
+                margin-bottom: 50px;
             }
 
 
 
         </style>
 
+        <style>
+
+            .tip {
+                width: 0px;
+                height: 0px;
+                position: absolute;
+                background: transparent;
+                border: 10px solid #ccc;
+            }
+
+            .tip-up {
+                top: -25px; /* Same as body margin top + border */
+                left: 10px;
+                border-right-color: transparent;
+                border-left-color: transparent;
+                border-top-color: transparent;
+                border-bottom-color: #00BCD4;
+            }
+
+            .dialogbox .body {
+                position: relative;
+                width: 80%;
+                margin: 10px;
+                padding: 5px;
+                background-color: #CEEDFF;
+                border-radius: 3px;
+                border: 5px solid #00BCD4;
+            }
+
+            .body .message {
+                border-radius: 3px;
+                font-family: Arial;
+                font-size: 14px;
+                line-height: 1.5;
+                color: #797979;
+            }
+
+        </style>
+
+
     </head>
 
-    <body class="signup-page">
+    <body class="signup-page" style="background-color: #CEEDFF;">
 
-        <nav class="navbar navbar-transparent navbar-absolute navbar-expand-lg" id="sectionsNav">
-            <div class="container">
-                <div class="navbar-translate">
+        <a href="#" class="scrollup">Scroll</a>
+
+    <center>
+        <div class="container">
+            <div class="navbar-translate">
+                <center>
                     <div class="brand">
-                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/LogoNoLetra.png" alt="Sports Time" width=145 height=145> </a>
-                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/Nombre.png" alt="Sports Time" width=400 height=103> </a>
+                        <a class="navbar-brand" href="./Login.jsp"> <img src="assets/img/LOGORes.png" alt="Sports Time" width=80% height=80%> </a>
                     </div>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <input id="volver" type="submit" value="volver" class="btn btn-info btn-round">
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/SportsTimeUSA" target="_blank" data-original-title="Síguenos en Twitter">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/Sports-Time-448388048915031/" target="_blank" data-original-title="Síguenos en Facebook">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/sports_time_usa/" target="_blank" data-original-title="Síguenos en Instagram">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                </center>
             </div>
+        </div>
+    </center>
 
-        </nav>
+    <div>
+        <div style="margin-bottom: 10px; margin-top: 10px;">
+            <center>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/SportsTimeUSA" target="_blank" data-original-title="Síguenos en Twitter">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/Sports-Time-448388048915031/" target="_blank" data-original-title="Síguenos en Facebook">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/sports_time_usa/" target="_blank" data-original-title="Síguenos en Instagram">
+                    <i class="fa fa-instagram"></i>
+                </a>
+            </center>
+        </div>
+        <center>
+            <a style="display:inline-block;margin-right:5px;" class="nav-link" rel="tooltip" title="" data-placement="bottom" href="./Coach.jsp" data-original-title="Perfil">
+                <i class="material-icons">face</i>
+            </a>
+            <input style="display:inline-block;margin-right:5px;" id="sesionclose" type="submit" value="Cerrar Sesion" class="btn btn-info btn-round">
+            <input style="display:inline-block;margin-right:5px;" id="volver" type="submit" value="volver" class="btn btn-info btn-round">
+        </center>
+    </div>
 
-        <div class="page-header " style="background-image: url('assets/img/kit/bg2.jpg'); background-size: cover; background-position: top center;">
-            <div class="profile-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 ml-auto mr-auto">
-                            <div class="card card-signup">
+    <div class="page-header">
+        <div class="profile-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 ml-auto mr-auto">
+                        <div class="card card-signup">
 
-                                <h2 class="card-title text-center"><%=name%></h2> <br>
+                            <h2 class="card-title text-center"><%=name%></h2> <br>
 
-                                <center>
-                                    <div class="profile">
-                                        <div class="avatar">
-                                            <img src="fotosdb/<%=fotoName%>" alt="Circle Image" class="img-raised rounded-circle img-fluid" width=200 height=200>
+
+                            <center>
+                                <div class="profile">
+                                    <div class="avatar">
+                                        <img src="fotosdb/<%=fotoName%>" alt="Circle Image" class="img-raised rounded-circle img-fluid" width=200 height=200>
+                                    </div>
+                                </div>
+                            </center>
+
+
+                            <div class="info info-horizontal">
+                                <div class="description">
+                                    <h3 class="info-title"> <img src="https://image.flaticon.com/icons/svg/149/149066.svg" alt="Rutina" width=36 height=36 hspace="5"> Muro - Notificaciones.</h3>
+
+                                    <center>
+                                        <div class="form-check form-check-radio form-check-inline">
+                                            <h6>Ayuda:</h6>
+                                            <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="LAS NOTIFICACIONES..." data-content="Te permiten publicar un mensaje y que los demÃ¡s lo vean. Este posee una duraciÃ³n en DÃAS."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
                                         </div>
-                                    </div>
-                                </center>
-
-
-                                <div class="info info-horizontal">
-                                    <div class="description">
-                                        <h3 class="info-title"> <img src="https://image.flaticon.com/icons/svg/149/149066.svg" alt="Rutina" width=36 height=36 hspace="5"> Muro - Notificaciones.</h3>
-
-                                        <center>
-                                            <div class="form-check form-check-radio form-check-inline">
-                                                <h6>Ayuda:</h6>
-                                                <a tabindex="0" class="button" role="button" data-toggle="popover" data-trigger="focus" title="LAS NOTIFICACIONES..." data-content="Te permiten publicar un mensaje y que los demás lo vean. Este posee una duración en DÍAS."><img title="ayuda" src="https://image.flaticon.com/icons/svg/148/148769.svg" alt="Sports Time" width=17 height=17 hspace="10"></a>
-                                            </div>
-                                        </center>
-                                    </div>
-                                </div>
-
-                                <div class="containerC" style="padding-top: 20px; margin: 20px; width: 800px; align-self:center;">
-
-                                    <label for="name">Título</label>
-                                    <input type="text" id="name" name="name" placeholder="Título...">
-
-                                    <label for="duracion">Duración (en días)</label>
-                                    <input id="duracion" type="text" name="duracion" placeholder="Duración en días...">
-
-                                    <label for="mensaje">Mensaje</label>
-                                    <textarea id="mensaje" name="message" placeholder="Descripción..." style="height:300px"></textarea>
-
-                                    <input id="publicar" type="submit" value="Publicar">
-
-                                </div>    
-
-                                <div class="line"></div>
-
-
-
-
-                                <%
-
-                                    Crud_Comments co = new Crud_Comments();
-                                    Crud_Comments_User couser = new Crud_Comments_User();
-                                    Date date = new Date();
-                                    DateFormat hourdateFormat = new SimpleDateFormat("yyyy/MM/dd");
-                                    String fecha_y_hora = hourdateFormat.format(date);
-
-                                    for (int i = 0; i < co.findAll().size(); i++) {
-                                        if (fecha_y_hora.equals(co.findAll().get(i).getDate())) {
-                                            co.delete(fecha_y_hora);
-                                        }
-                                    }
-
-                                    for (int i = 0; i < couser.findAll().size(); i++) {
-                                        if (fecha_y_hora.equals(couser.findAll().get(i).getDate())) {
-                                            couser.delete(fecha_y_hora);
-                                        }
-                                    }
-
-                                    for (int i = 0; i < co.findAll().size(); i++) {
-
-                                %> 
-
-                                <div style="background-image: url('assets/img/kit/ft.jpg'); width:600px; height: 500px; align-self: center; padding: 30px">
-                                    <center>
-                                        <h5 class="info-title"> Publicado por: </h5>
-                                        <% out.println("<h2 class=\"text-divider\">" + co.findAll().get(i).getId() + "</h2>"); %>
-                                        <br>
-                                        <h5 class="info-title"> Título: </h5>
-                                        <% out.println("<h2 class=\"text-divider\"> \"" + co.findAll().get(i).getName() + "\"</h2>"); %>
-                                        <br>
-                                        <h4 class="info-title"> Mensaje: </h4>
-                                        <% out.println("<p class=\"text-divider\">" + co.findAll().get(i).getText() + "</p>"); %>
                                     </center>
-
                                 </div>
+                            </div>
 
-                                <%
+                            <p>
+                            <center>
+                                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    Publicar notificación en el Muro.
+                                </button>
+                            </center>
+                            </p>
 
-                                    String itera = String.valueOf(i);
+                            <div style="margin-bottom: 30px;" class="collapse" id="collapseExample">
+                                <div class="card card-body">
 
-                                    for (int i2 = 0; i2 < couser.findAll().size(); i2++) {
+                                    <br><h3 style="margin-left: 6%;" class="card-title">Publica una notificación:</h3>
 
-                                        if (i2 == 0) {
+                                    <div class="containerC" style="padding-top: 20px; margin: 20px; width: 90%; align-self:center;">
 
-                                %>
+                                        <label for="name">Título</label>
+                                        <input type="text" id="name" name="name" placeholder="Título...">
 
-                                <h3 class="info-title" style="align-self: center; margin: 50px">Comentarios de esta publicación:</h3>
+                                        <label for="duracion">Duración (en días)</label>
+                                        <input id="duracion" type="text" name="duracion" placeholder="Duración en días...">
 
-                                <%}
+                                        <label for="mensaje">Mensaje</label>
+                                        <textarea id="mensaje" name="message" placeholder="Descripción..." style="height:300px"></textarea>
 
-                                    if (couser.findAll().get(i2).getIdcomments().equals(itera)) {
+                                        <input id="publicar" type="submit" value="Publicar">
 
-                                %> 
+                                    </div>    
 
-                                <div style="background-image: url('assets/img/kit/ft.jpg'); width:800px; height: 300px; align-self: center; padding: 30px">
-                                    <center>
-                                        <h5 class="info-title"> Comentado por: </h5>
-                                        <% out.println("<h3 class=\"text-divider\">" + couser.findAll().get(i2).getId() + "</h3>"); %>
-                                        <br>
-                                        <h4 class="info-title"> Mensaje: </h4>
-                                        <% out.println("<p class=\"text-divider\">" + couser.findAll().get(i2).getText() + "</p>"); %>
-                                    </center>
-
-                                </div>
-
-
-                                <center>
-                                    <br><br>
-                                    <p style="color:#17AEED">___________________________________________________________________</p>
                                     <br>
-                                </center>
-
-
-                                <%    }
-
-                                    }
-
-                                    String temp1 = "idcomment" + itera;
-                                    String temp2 = "mensajecomment" + itera;
-                                    String temp3 = "duracioncomment" + itera;
-                                    String temp4 = "comentar" + itera;
-
-                                    out.println("</center>");
-
-                                %>
-
-
-                                <h3 class="info-title" style="align-self: center; margin: 50px">Comenta esta publicación <%=name%>...</h3>
-
-                                <div style="background-image: url('assets/img/kit/ft.jpg'); width:450px; height: 500px; align-self: center">
-                                    <div class="info info-horizontal">
-                                        <h4 class="info-title">Título:</h4>
-                                        <div class="description">
-                                            <input id="<%=temp1%>" type="text" readonly=â€readonlyâ€ value="<%=name%>" class="form-control"/> 
-                                        </div>
-                                    </div>
-
-                                    <div class="info info-horizontal">
-                                        <h4 class="info-title">Duración del comentario (días):</h4>
-                                        <div class="description">
-                                            <input id="<%=temp3%>" type="text" name="duracion" class="form-control" placeholder="Duración...">
-                                        </div>
-                                    </div>
-
-                                    <div class="info info-horizontal">
-                                        <div class="description">
-                                            <h4 class="info-title">Comentario:</h4>
-                                            <textarea id="<%=temp2%>" name="message" rows="10" cols="40" class="form-control" placeholder="Mensaje..."></textarea>
-                                        </div>
-                                    </div>
-
-                                    <center>
-                                        <input id="<%=temp4%>" type="submit" value="Comentar" onclick="redirigir('<%=itera%>')" class="btn btn-info btn-round">
-                                    </center>
+                                    <div class="card-footer justify-content-center">
+                                        <input id="publicar" type="submit" value="Publicar" class="btn btn-info btn-round">
+                                    </div> 
 
                                 </div>
+                            </div>
 
+                            <br><br><br>
 
-                                <br><br><br><br><br><br>
+                            <h3 style="margin-left: 6%;" class="card-title">Publicaciones:</h3>
 
-                                <center>
-                                    <br><br>
-                                    <p style="color:#17AEED">_____________________________________________________________________________________________________________________________________________</p>
-                                    <br>
-                                </center>
-
-                                <%
-
+                            <%
+                                Crud_Comments co = new Crud_Comments();
+                                Crud_Comments_User couser = new Crud_Comments_User();
+                                Date date = new Date();
+                                DateFormat hourdateFormat = new SimpleDateFormat("yyyy/MM/dd");
+                                String fecha_y_hora = hourdateFormat.format(date);
+                                for (int i = 0; i < co.findAll().size(); i++) {
+                                    if (fecha_y_hora.equals(co.findAll().get(i).getDate())) {
+                                        co.delete(fecha_y_hora);
                                     }
+                                }
+                                for (int i = 0; i < couser.findAll().size(); i++) {
+                                    if (fecha_y_hora.equals(couser.findAll().get(i).getDate())) {
+                                        couser.delete(fecha_y_hora);
+                                    }
+                                }
+                                for (int i = 0; i < co.findAll().size(); i++) {              
+                                    
+                            %> 
 
-                                %>
+                            <div class="post-author-bio clearfix" style="margin: 5%;">
+                                <img src="fotosdb/<%=fotoName%>" class="avatar avatar-114 photo" height="114" width="114"> 
+                                <div class="post-author-bio-content">
+                                    <h2 class="post-author-name">
+                                        <a style="color:#00BCD4"><% out.println(co.findAll().get(i).getId()+" dijo:");%></a>
+                                    </h2>
+                                    <h3>                     
+                                        <a style="color:#00BCD4"><% out.println(co.findAll().get(i).getName()); %></a>
+                                    </h3>
+                                    <div class="author-bio-text">
+                                        <% out.println(co.findAll().get(i).getText()); %>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%
+                                String itera = String.valueOf(i);
+                                for (int i2 = 0; i2 < couser.findAll().size(); i2++) {
+                                    if (i2 == 0) {
+                            %>
+
+                            <%}
+                                if (couser.findAll().get(i2).getIdcomments().equals(itera)) {
+                            %> 
 
 
+                            <div class="container" style="margin-left: 15%;">
+                                <div class="dialogbox">
+                                    <div class="body">
+                                        <span class="tip tip-up"></span>
+                                        <div class="message">
+                                            <span>
+                                                <h4 style="margin-bottom: 1%">                     
+                                                    <a style="color:#00BCD4"><% out.println(couser.findAll().get(i2).getId().toUpperCase()); %></a>
+                                                </h4>
+                                                <span>
+                                                    <div style="margin-left: 1%">
+                                                        <% out.println(couser.findAll().get(i2).getText()); %>
+                                                    </div>
+                                                </span>                            
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%    }
+                                }
+                                String temp1 = "idcomment" + itera;
+                                String temp2 = "mensajecomment" + itera;
+                                String temp3 = "duracioncomment" + itera;
+                                String temp4 = "comentar" + itera;
+                                out.println("</center>");
+                            %>
+
+                            <br><br><br>
+                            <p>
+                                <button style="margin-left: 18%;" class="btn btn-info" type="button" data-toggle="collapse" data-target="#comentar" aria-expanded="false" aria-controls="collapseExample">
+                                    Comentar
+                                </button>
+                            </p>
+
+                            <div style="margin-bottom: 30px;" class="collapse" id="comentar">
+
+                                <div class="card card-body" style="margin-left: 18%;width: 76%;background-color: #CEEDFF;">
+
+                                    <br><h3 style="margin-left: 6%;" class="card-title">Comenta esta publicación:</h3>
+
+                                    <div class="containerC" style="padding-top: 20px; margin: 20px; width: 90%; align-self:center;background-color: #00BCD4;">
+
+                                        <label for="name" style="color: white;">Por:</label>
+                                        <input type="text" id="<%=temp1%>" value="<%=name%>" readonly>
+
+                                        <label for="duracion" style="color: white;">Duración (en días):</label>
+                                        <input id="<%=temp3%>" type="text" name="duracion" placeholder="Duración en días...">
+
+                                        <label for="mensaje" style="color: white;">Comentario:</label>
+                                        <textarea id="<%=temp2%>" name="message" placeholder="Descripción..." style="height:300px"></textarea>        
+
+                                    </div>  
+
+                                    <br>
+                                    <div class="card-footer justify-content-center">
+                                        <input style="background-color: #00BCD4;" id="<%=temp4%>" type="submit" value="Comentar" onclick="redirigir('<%=itera%>')">
+                                    </div> 
+                                </div>
 
                             </div>
+
+                            <%
+                                }
+                            %>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <footer class="footer" style="background-color: #CEEDFF;">
+        <div class="container">
+            <br>
+            <center>
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, Sebastián Rojas, Diego León, Mario Bolaños.
+            </center>
+        </div>
+    </footer>
 
+    <!--   Core JS Files   -->
+    <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="./assets/js/core/jquery.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/bootstrap-material-design.js"></script>
+    <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+    <script src="./assets/js/plugins/moment.min.js"></script>
+    <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+    <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+    <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+    <script src="./assets/js/plugins/nouislider.min.js"></script>
+    <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+    <script src="./assets/js/material-kit.js?v=2.0.2"></script>
+    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+    <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
+    <script>
+                    $(document).ready(function () {
+                        //init DateTimePickers
+                        materialKit.initFormExtendedDatetimepickers();
+                        // Sliders Init
+                        materialKit.initSliders();
+                    });
+    </script>
 
-        <footer class="footer" style="background-image: url('assets/img/kit/ft.jpg'); background-size: cover; background-position: top center;">
-            <div class="container">
-                <br>
-                <center>
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Hecho por Sara Chamseddine, Juan Camilo Botonero, SebastiÃ¡n Rojas, Diego LeÃ³n, Mario BolaÃ±os
-                </center>
-            </div>
-        </footer>
-
-
-
-        <!--   Core JS Files   -->
-        <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script src="./assets/js/core/jquery.min.js"></script>
-        <script src="./assets/js/core/popper.min.js"></script>
-        <script src="./assets/js/bootstrap-material-design.js"></script>
-        <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
-        <script src="./assets/js/plugins/moment.min.js"></script>
-        <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-        <script src="./assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-        <!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-        <script src="./assets/js/plugins/nouislider.min.js"></script>
-        <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
-        <script src="./assets/js/material-kit.js?v=2.0.2"></script>
-        <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-        <script src="./assets/assets-for-demo/js/material-kit-demo.js"></script>
-        <script>
-                        $(document).ready(function () {
-
-                            //init DateTimePickers
-                            materialKit.initFormExtendedDatetimepickers();
-
-                            // Sliders Init
-                            materialKit.initSliders();
-                        });
-        </script>
-
-    </body>
+</body>
 
 </html>
