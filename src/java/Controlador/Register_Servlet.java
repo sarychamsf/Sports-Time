@@ -24,16 +24,16 @@ import org.apache.commons.codec.digest.DigestUtils;
 @WebServlet(name = "Register_Servlet", urlPatterns = {"/Register_Servlet"})
 @MultipartConfig
 public class Register_Servlet extends HttpServlet {
-    
+
     private static final long serialVersionUID = 1L;
     private final static Logger LOGGER = Logger.getLogger(Login_Servlet.class.getCanonicalName());
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         response.setContentType("text/html; charset=iso-8859-1");
         response.sendRedirect("Login.jsp");
-        
+
         String Name = request.getParameter("Name");
         String Lastname = request.getParameter("Lastname");
         String Password = request.getParameter("Password");
@@ -53,44 +53,49 @@ public class Register_Servlet extends HttpServlet {
         String Emergency_Number = request.getParameter("Emergency_Number");
         String Allergies = request.getParameter("Allergies");
         String Diseases = request.getParameter("Diseases");
+
         String FotoName = request.getParameter("fototxt");
-        
-        Part FotoFile = request.getPart("fotofile");
-        final String path = "C:/Users/user/Documents/NetBeansProjects/SpotsTime10000/web/fotosdb/";
-        InputStream filecontent = FotoFile.getInputStream();
-        PrintWriter out = response.getWriter();
-        File file = new File(path + FotoName);
-        OutputStream output = new FileOutputStream(file);
-        final PrintWriter writer = response.getWriter();
-        
-        int read = 0;
-        final byte[] bytes = new byte[1024];
-        
-        while ((read = filecontent.read(bytes)) != -1) {
-            output.write(bytes, 0, read);
+
+        if (!FotoName.equals("default.png")) {
+            Part FotoFile = request.getPart("fotofile");
+            final String path = "C:/Users/user/Documents/NetBeansProjects/SportsTime4/web/fotosdb/";
+            InputStream filecontent = FotoFile.getInputStream();
+            PrintWriter out = response.getWriter();
+            File file = new File(path + FotoName);
+            OutputStream output = new FileOutputStream(file);
+            final PrintWriter writer = response.getWriter();
+
+            int read = 0;
+            final byte[] bytes = new byte[1024];
+
+            while ((read = filecontent.read(bytes)) != -1) {
+                output.write(bytes, 0, read);
+            }
+
+            if (out != null) {
+                out.close();
+            }
+            if (filecontent != null) {
+                filecontent.close();
+            }
+            if (writer != null) {
+                writer.close();
+            }
         }
-        
-        if (out != null) {
-            out.close();
-        }
-        if (filecontent != null) {
-            filecontent.close();
-        }
-        if (writer != null) {
-            writer.close();
-        }
-        
+
+        System.out.println("FOTO NAME " + FotoName);
+
         if (Role.equals("1")) {     //coach
 
             try {
-                
+
                 Register reg = new Register(Name, Lastname, textoEncriptadoConMD5, Identification_Card, Coach, Jornada, Genre, Born_Date, Height, weight, Category, Cellphone, Role, Description, Eps, Emergency_Number, Allergies, Diseases, FotoName);
                 Crud_Coach crr = new Crud_Coach();
                 crr.insert(reg);
             } catch (SQLException ex) {
                 Logger.getLogger(Login_Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         } else if (Role.equals("2")) {   //athlete
 
             try {
@@ -100,9 +105,9 @@ public class Register_Servlet extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(Login_Servlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
-        
+
     }
-    
+
 }

@@ -363,7 +363,7 @@
                                         <div class="form-group">
                                             <p>Selecciona una imagen de perfil:</p>
                                             <div class="form-group form-file-upload form-file-simple">
-                                                <input name="fototxt" id="fototxt" type="text" class="form-control inputFileVisible" placeholder="Simple chooser...">
+                                                <input name="fototxt" id="fototxt" value="default.png" type="text" class="form-control inputFileVisible" placeholder="Simple chooser...">
                                                 <input name="fotofile" id="fotofile" type="file" class="inputFileHidden" accept=".jpg, .jpeg, .png">
                                             </div>
                                         </div>   
